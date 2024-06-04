@@ -1,0 +1,250 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+
+      /* Hero */
+      .hero {
+        width: 100%;
+        height: 20vh;
+        background-color: #34495e;
+        position: relative;
+        padding: 0 5%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .hero video {
+        width: 100%;
+      }
+
+      nav {
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding: 20px 5%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      nav .logo {
+        max-width: 180px;
+        width: 100%;
+        height: auto;
+      }
+
+      nav ul li {
+        list-style: none;
+        display: inline-block;
+        margin-left: 20px;
+      }
+
+      nav ul li a {
+        text-decoration: none;
+        font-size: 20px;
+        color: #fff;
+      }
+
+      nav ul li a:hover {
+        color: #027351;
+      }
+
+      /* Card Styles */
+      * {
+        margin: 0;
+        padding: 0;
+        font-family: "Roboto", sans-serif;
+      }
+
+      body {
+        background-image: url("{% static 'images/pexel.jpg' %}");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+
+      h1 {
+        font-size: 2.8rem;
+        color: #181616;
+        margin: 40px 0 20px 0;
+        text-align: center;
+      }
+
+      .cards {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+      }
+
+      .card {
+        margin: 30px;
+        position: relative;
+        max-width: 200px;
+        border-radius: 3%;
+        max-height: 250px;
+        box-shadow: 0 40px 60px -6px rgb(88, 83, 83);
+        overflow: hidden; /* Ensure the content does not overflow */
+      }
+
+      .card-title {
+       color: #fcf4f4;
+        display: block;
+        text-align: center;
+        font-size: 1.3rem;
+        padding: 4px 0; /* Adjust padding to remove excess space */
+        position: absolute;
+        top: 0;
+        background-color: hsl(189, 19%, 42%);
+        width: 100%;
+        z-index: 1; /* Ensure the title is above other elements */
+      }
+
+      .card img {
+        width: 100%;
+        height: 100%; /* Ensure the image covers the card fully */
+        object-fit: cover;
+        display: block;
+        position: relative;
+        z-index: 0;
+      }
+
+      .card-desc {
+        display: block;
+        font-size: 1.1rem;
+        position: absolute;
+        height: 0;
+        top: 0;
+        opacity: 0;
+        padding: 18px 8%;
+        background-color: hwb(0 100% 0%);
+        overflow-y: scroll;
+        transition: 0.8s ease;
+        z-index: 2; /* Ensure the description is above other elements when visible */
+      }
+
+      .card:hover .card-desc {
+        opacity: 1;
+        height: 100%;
+      }
+    </style>
+
+    <title>Hero section</title>
+  </head>
+
+  <body>
+    <div class="hero about">{% include "navbar.html" %}</div>
+    <h1>Flowering Shurb</h1>
+    <div class="cards">
+      <div class="card">
+        <h2 class="card-title">Box wood</h2>
+        <img src="{% static 'images/boxwood.jpg' %}" alt="" />
+        <p class="card-desc">
+          Boxwood is an evergreen shrub known for its dense, green foliage and ability to be shaped into various forms. 
+          It is often used in formal garden settings and as hedging due to its compact growth habit.
+          Boxwood requires well-drained soil and partial to full sun to thrive.
+        </p>
+      </div>
+      <div class="card">
+        <h2 class="card-title">Camellia</h2>
+        <img src="{% static 'images/camellia.jpg' %}" alt="" />
+        <p class="card-desc">
+            Camellia shrubs are prized for their stunning, rose-like flowers that bloom in late winter to spring.
+            They have glossy, dark green leaves that provide year-round interest in the garden.
+            Camellias prefer acidic, well-drained soil and dappled shade.
+        </p>
+      </div>
+      <div class="card">
+        <h2 class="card-title">Forsythia</h2>
+        <img src="{% static 'images/forsythia.jpg' %}" alt="" />
+        <p class="card-desc">
+           Forsythia is known for its bright yellow flowers that herald the arrival of spring.
+            This fast-growing shrub is easy to care for and can be used for hedging or as a standalone feature.
+            It thrives in full sun to partial shade and well-drained soil.
+        </p>
+      </div>
+      <div class="card">
+        <h2 class="card-title">Lilac</h2>
+        <img src="{% static 'images/lilac.jpg' %}" alt="" />
+        <p class="card-desc">
+          Lilac shrubs are celebrated for their fragrant, colorful flowers that bloom in late spring.
+          They are available in a range of colors, including purple, white, and pink.
+          Lilacs prefer full sun and well-drained soil for optimal growth and flowering
+        </p>
+      </div>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <h2 class="card-title">Hydrangea</h2>
+        <img src="{% static 'images/hydrangea.jpg' %}" alt="" />
+        <p class="card-desc">
+          Hydrangeas are beloved for their large, showy flower heads that come in various colors, often changing with soil pH.
+          They can be used as focal points in the garden or planted in groups for a dramatic effect.
+          These shrubs prefer moist, well-drained soil and can tolerate both sun and shade.
+        </p>
+      </div>
+      <div class="card">
+        <h2 class="card-title">Rhododendron</h2>
+        <img src="{% static 'images/rhododendron.jpg' %}" alt="" />
+        <p class="card-desc">
+           Rhododendrons are known for their large clusters of colorful flowers and glossy green leaves.
+           They are ideal for woodland gardens and shaded areas.
+           These shrubs thrive in acidic, well-drained soil and partial to full shade.
+        </p>
+      </div>
+      <div class="card">
+        <h2 class="card-title">Mock Orange</h2>
+        <img src="{% static 'images/mockorange.jpg' %}" alt="" />
+        <p class="card-desc">
+          Mock Orange is famous for its citrus-scented white flowers that bloom in late spring to early summer.
+          It is a versatile shrub that can be used as a hedge, in borders, or as a standalone plant.
+          Mock Orange prefers well-drained soil and full sun to partial shade.
+        </p>
+      </div>
+      <div class="card">
+        <h2 class="card-title">Butterfly Bush</h2>
+        <img src="{% static 'images/fly.jpg' %}" alt="" />
+        <p class="card-desc">
+         The Butterfly Bush is known for attracting butterflies with its long, cone-shaped flower clusters.
+         It blooms from summer to fall and is available in various colors, including purple, pink, and white.
+        This shrub thrives in full sun and well-drained soil
+        </p>
+      </div>
+    </div>
+ <footer>
+      <h4> &copy; 2024 EWU</h4>
+    </footer>
+    <script type="text/javascript">
+      var Tawk_API = Tawk_API || {},
+        Tawk_LoadStart = new Date();
+      (function () {
+        var s1 = document.createElement("script"),
+          s0 = document.getElementsByTagName("script")[0];
+        s1.async = true;
+        s1.src = "https://embed.tawk.to/656f6734ff45ca7d47871e92/1hgtima71";
+        s1.charset = "UTF-8";
+        s1.setAttribute("crossorigin", "*");
+        s0.parentNode.insertBefore(s1, s0);
+      })();
+    </script>
+  </body>
+</html>

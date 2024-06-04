@@ -1,0 +1,1168 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <style>
+      @keyframes fadeInOut {
+        0%,
+        100% {
+          opacity: 0;
+        }
+
+        50% {
+          opacity: 1;
+        }
+      }
+
+      .animate-text {
+        animation: fadeInOut 4s infinite;
+      }
+
+      .content {
+        text-align: center;
+      }
+
+      .content h1 {
+        font-size: 6vw;
+        color: #fff;
+        font-weight: 600;
+        transition: 0.3s;
+      }
+
+      .content h2 {
+        font-size: 2vw;
+        color: #fff;
+        font-weight: 600;
+        transition: 0.3s;
+      }
+
+      .content h1:hover {
+        -webkit-text-stroke: 1px #fff;
+        color: transparent;
+      }
+
+      .content a {
+        text-decoration: none;
+        color: #fff;
+        font-size: 2vw;
+        display: inline-block;
+        border: 1px solid #fff;
+        padding: 10px 20px;
+        border-radius: 20px;
+        margin-top: 10px;
+      }
+
+      .back-video {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        z-index: -1;
+      }
+
+      /* who-we-are */
+      .who-we-are {
+        background-color: #125f4c;
+        width: 100%;
+        height: 100vh;
+        display: flex;
+      }
+
+      .who-we-are h1,
+      h2 {
+        color: #ffffff;
+      }
+
+      .who-we-are .left-panel h1 {
+        font-size: 6vw;
+      }
+
+      .who-we-are .left-panel h2 {
+        padding-top: 5dvh;
+        font-size: 2.5dvh;
+        width: 80%;
+        font-weight: 400;
+        color: #ffffff;
+      }
+
+      .left-panel,
+      .right-panel {
+        flex: 1;
+        padding: 20px;
+        padding-left: 5dvh;
+        padding-right: 5dvh;
+        padding-top: 20dvh;
+      }
+
+      .who-we-are .text-block {
+        border-top: #ffffff solid 1px;
+      }
+
+      .who-we-are .right-panel h1 {
+        font-size: 5dvh;
+        padding-top: 2dvh;
+        /* font-weight: 500; */
+      }
+
+      .who-we-are .right-panel h2 {
+        padding-top: 2dvh;
+        font-size: 2.5dvh;
+        padding-bottom: 2dvh;
+        font-weight: 400;
+        color: #ffffff;
+      }
+
+      /* highlight */
+
+      .highlight {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+      }
+
+      .highlight h1,
+      h2 {
+        color: #000000;
+      }
+
+      .highlight h1 {
+        font-size: 3vw;
+        /* margin-left: auto */
+      }
+
+      .highlight h2 {
+        padding-top: 6dvh;
+        font-size: 2.5dvh;
+        width: 75%;
+        font-weight: 400;
+        padding-bottom: 5dvh;
+        text-align: justify;
+        /* margin-left: 20% */
+      }
+
+      .highlight a {
+        text-decoration: none;
+        color: #027351;
+        font-size: 3dvh;
+        font-weight: 700;
+        padding: 1dvh 5dvh;
+        border: #027351 solid 1px;
+        border-radius: 50px;
+        /* margin-left: 23%; */
+        /* margin-top: auto; */
+      }
+
+      .highlight a:hover {
+        background-color: #027351;
+        color: #ffffff;
+        transition: 0.5s;
+      }
+
+      .highlight .left-panel {
+        overflow: hidden;
+      }
+
+      .highlight .right-panel {
+        overflow: hidden;
+      }
+
+      .highlight .right-panel img {
+        border-radius: 5px;
+        height: 80%;
+        width: auto;
+        display: block;
+        margin-left: 25%;
+      }
+
+      .highlight .left-panel img {
+        border-radius: 5px;
+        height: 80%;
+        width: auto;
+        display: block;
+        margin-left: 25%;
+      }
+
+      /* Initial state of the highlight sections */
+      .highlight {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 1s, transform 1s;
+      }
+
+      /* Animated state of the highlight sections */
+      .highlight.animate {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Motivation */
+      .review {
+        font-family: "Arial", sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 50vh;
+      }
+
+      .review {
+        background-image: url("/static/images/background.jpg");
+        /* Replace with the actual path to your background image */
+        background-size: cover;
+        background-position: center;
+        /* Add other background properties as needed */
+        height: 500px;
+        /* Adjust the height as needed */
+        width: 100%;
+        /* Set width to 100% to cover the entire width of the container */
+        margin-top: 20px;
+        /* Adjust the top margin as needed */
+        position: relative;
+      }
+
+      /* Add this CSS to your existing stylesheet */
+
+      .heading {
+        color: rgb(54, 99, 85);
+        text-align: center;
+        font-size: 35px;
+        font-weight: bold;
+        font-weight: bold;
+        margin-bottom: 20px;
+      }
+
+      .slider-container {
+        position: relative;
+        width: 80%;
+        overflow: hidden;
+        margin: 0 auto;
+        /* Center the slider container */
+      }
+
+      .prev-btn,
+      .next-btn {
+        font-size: 30px;
+        background: none;
+        border: none;
+        color: #0a0909;
+        cursor: pointer;
+        outline: none;
+      }
+
+      .slider {
+        display: flex;
+        align-items: center;
+        /* Center the content vertically */
+        transition: transform 0.5s ease-in-out;
+      }
+
+      .slide {
+        min-width: 100%;
+        box-sizing: border-box;
+        text-align: center;
+        /* Center the content horizontally */
+      }
+
+      .review-text {
+        font-size: 18px;
+      }
+
+      .review-author {
+        margin-top: 10px;
+        font-style: italic;
+        color: #555;
+      }
+
+      /* Contact */
+      .contact {
+        font-family: "Arial", sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+      }
+
+      .contact-form {
+        width: 100%;
+        max-width: 50%;
+        padding: 20px;
+        box-sizing: border-box;
+      }
+
+      .form-group {
+        margin-bottom: 20px;
+      }
+
+      .form-group label {
+        display: block;
+        font-size: 16px;
+        margin-bottom: 8px;
+      }
+
+      .form-group input,
+      .form-group textarea {
+        width: 100%;
+        padding: 10px;
+        box-sizing: border-box;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+      }
+
+      .form-group textarea {
+        resize: vertical;
+      }
+
+      .form-group button {
+        background-color: #ffffff;
+        text-decoration: none;
+        color: #027351;
+        font-size: 3dvh;
+        font-weight: 700;
+        padding: 1dvh 5dvh;
+        border: #027351 solid 1px;
+        border-radius: 50px;
+        margin-left: auto;
+      }
+
+      .form-group button:hover {
+        background-color: #027351;
+        color: #ffffff;
+        transition: 0.5s;
+        cursor: pointer;
+      }
+      /*  Add this style specifically for the round button with plant icon */
+      .garden-heading {
+        margin-top: 100px;
+        text-align: center;
+        color: #0e0c0c;
+        /* Adjust the color as needed */
+        font-size: 40px;
+        /* Adjust the font size as needed */
+        margin-bottom: 30px;
+        /* Adjust the margin as needed */
+      }
+
+      .button-title {
+        display: inline-block;
+        margin-left: 1px;
+        /* Adjust the margin as needed */
+      }
+
+      .round-button {
+        text-align: center;
+        margin-top: 20px;
+        /* Adjust the margin as needed */
+      }
+
+      .round-button-link {
+        display: inline-block;
+        background-color: #b7c5cc;
+        /* Change the background color as desired */
+        color: #fff;
+        width: 80px;
+        /* Adjust the width as needed */
+        height: 80px;
+        /* Adjust the height to match the width for a circle */
+        line-height: 80px;
+        /* Vertically center text within the circle */
+        border-radius: 80%;
+        /* Set to 50% for a circular shape */
+        text-decoration: none;
+        font-size: 18px;
+        transition: background-color 0.3s ease;
+        position: relative;
+        /* Position relative for absolute positioning of the icon */
+      }
+
+      /* Style for the plant icon */
+      .plant-icon {
+        position: absolute;
+        top: 55%;
+        left: 55%;
+        transform: translate(-50%, -50%);
+        width: 70px;
+        /* Adjust the icon size as needed */
+        height: 70px;
+        background-image: url("/static/images/plant1.png");
+        /* Replace with the path to your icon */
+        background-size: cover;
+        transition: transform 0.3s ease;
+        /* Add transition for smooth effect */
+      }
+
+      /* Hover effect for the plant icon */
+      .round-button-link:hover .plant-icon {
+        transform: scale(1.1);
+        /* Adjust the scale factor for the hover effect */
+      }
+
+      .flower-icon {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 65px;
+        /* Adjust the icon size as needed */
+        height: 60px;
+        /* ... existing styles ... */
+        background-image: url("/static/images/idea1.png");
+        background-size: cover;
+        transition: transform 0.3s ease;
+        /* Add transition for smooth effect */
+      }
+
+      /* Hover effect for the flower icon */
+      .round-button-link:hover .flower-icon {
+        transform: scale(1.1);
+        /* Adjust the scale factor for the hover effect */
+      }
+
+      /* Style for the sun icon */
+      .sun-icon {
+        position: absolute;
+        top: 45%;
+        left: 55%;
+        transform: translate(-50%, -50%);
+        width: 70px;
+        /* Adjust the icon size as needed */
+        height: 60px;
+        /* ... existing styles ... */
+        background-image: url("/static/images/care.png");
+        background-size: cover;
+        transition: transform 0.3s ease;
+        /* Add transition for smooth effect */
+      }
+
+      /* Hover effect for the sun icon */
+      .round-button-link:hover .sun-icon {
+        transform: scale(1.1);
+        /* Adjust the scale factor for the hover effect */
+      }
+
+      .button-title {
+        display: block;
+        text-align: center;
+        margin-top: 10px;
+        /* Adjust the margin as needed */
+        font-size: 16px;
+        /* Adjust the font size as needed */
+        color: #333;
+        /* Adjust the color as needed */
+      }
+
+      .section-with-background {
+        background-image: url("/static/images/background.jpg");
+        /* Replace with the actual path to your background image */
+        background-size: cover;
+        background-position: center;
+        /* Add other background properties as needed */
+        height: 500px;
+        /* Adjust the height as needed */
+        width: 100%;
+        /* Set width to 100% to cover the entire width of the container */
+        margin-top: 20px;
+        /* Adjust the top margin as needed */
+        position: relative;
+      }
+
+      .passionate-about-gardening {
+        background-image: url("/static/images/background5.png");
+        /* Replace with the actual path to your background image */
+        background-size: cover;
+        background-position: center;
+        /* Add other background properties as needed */
+        height: 500px;
+        /* Adjust the height as needed */
+        width: auto;
+        /* Set width to 100% to cover the entire width of the container */
+        margin-top: auto;
+        /* Adjust the top margin as needed */
+        position: relative;
+      }
+
+      /* animate */
+
+      .flower {
+        width: 1px; /* Adjust the width to your desired size */
+        height: 1px; /* Adjust the height to your desired size */
+        margin-left: 10px;
+        position: relative;
+      }
+
+      .f-wrapper {
+        position: absolute;
+        left: 45%;
+        bottom: 2vmin;
+      }
+
+      .f-wrapper--2 {
+        left: 50%;
+        bottom: 5%;
+        transform-origin: 10% left;
+        transform: rotate(20deg);
+      }
+
+      .f-wrapper--3 {
+        left: 30%;
+        bottom: 5%;
+        transform-origin: 10% left;
+        transform: rotate(-10deg);
+      }
+
+      .f-wrapper--3 .flower__line {
+        height: 45vmin;
+        position: relative;
+      }
+
+      .f-wrapper--3 .flower__line::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 6vmin;
+        height: 6vmin;
+        transform: translate(-69%, -30%) rotate(-5deg);
+        border-radius: 10vmin 10vmin 0 0;
+        border: 2vmin solid #104d4e;
+        border-bottom: transparent;
+        border-left: transparent;
+      }
+
+      .f-wrapper--3 .flower__line::before {
+        content: "";
+        position: absolute;
+        left: -40%;
+        top: -1%;
+        width: 6vmin;
+        height: 2vmin;
+        transform-origin: right;
+        transform: translate(-100%, -80%) rotate(-20deg);
+        background-color: #104d4e;
+        border-radius: 2vmin;
+      }
+
+      .f-wrapper--3 .flower__line {
+        background-image: linear-gradient(to top, #142544, #104d4e);
+      }
+
+      .f-wrapper--2 .flower__line {
+        height: 45vmin;
+      }
+
+      .f-wrapper--2 .f {
+        transform: translateX(-50%) rotate(20deg);
+      }
+
+      .f-wrapper--3 .f {
+        transform: translate(-350%, -50%) rotate(-120deg);
+      }
+
+      .f-wrapper--2 .flower__leaf:not(:first-child) {
+        width: 3.8vmin;
+        height: 10vmin;
+        background-image: linear-gradient(
+          to bottom,
+          #ff43b6,
+          #c22887,
+          #1a233a 99%
+        );
+      }
+
+      .f-wrapper--3 .flower__leaf:not(:first-child) {
+        width: 3.8vmin;
+        height: 10vmin;
+        background-image: linear-gradient(
+          to bottom,
+          #ad2be0,
+          #712291,
+          #1a233a 99%
+        );
+      }
+
+      .f-wrapper--3 .flower__leaf--1 {
+        width: 8vmin;
+        height: 10vmin;
+        bottom: 2vmin;
+        background-color: #ad2be0;
+      }
+
+      .f-wrapper--2 .flower__leaf--1 {
+        width: 8vmin;
+        height: 10vmin;
+        bottom: 2vmin;
+        background-color: #de118b;
+      }
+
+      .f-wrapper--2 .f .flower__leaf--8 {
+        width: 10vmin;
+        height: 9vmin;
+        bottom: 3vmin;
+        left: -30%;
+        transform: rotate(-50deg);
+        background-image: linear-gradient(to left bottom, #ff43b6, #4d1337);
+      }
+
+      .f-wrapper--3 .f .flower__leaf--8 {
+        width: 10vmin;
+        height: 9vmin;
+        left: -10% !important;
+        background-image: linear-gradient(to left bottom, #ad2be0, #712291);
+      }
+
+      .flower__line {
+        width: 2vmin;
+        height: 56vmin;
+        background-image: linear-gradient(
+          to left top,
+          #82fdff 20%,
+          #142544,
+          #104d4e
+        );
+        border-radius: 4vmin;
+      }
+
+      .f {
+        position: absolute;
+        top: 1vmin;
+        left: 50%;
+        transform: translateX(-50%) rotate(-10deg);
+        width: 2vmin;
+        height: 2vmin;
+      }
+
+      .flower__leaf {
+        position: absolute;
+        left: 50%;
+        bottom: 2vmin;
+        transform: translateX(-50%);
+        width: 5vmin;
+        height: 14vmin;
+        background-image: linear-gradient(
+          to bottom,
+          #ffa085,
+          #fa7373,
+          #1a233a 99%
+        );
+
+        clip-path: ellipse(50% 50% at 50% 50%);
+        transform-origin: center bottom;
+        animation: open-flower 2s 1s backwards;
+      }
+
+      .flower__leaf--1 {
+        width: 10vmin;
+        height: 12vmin;
+        bottom: 3vmin;
+        border-radius: 50% 50% 50% 50% / 80% 80% 20% 20%;
+        background-color: #e24f5f;
+        background-image: none;
+        animation: open-flowe--middle 1.4s 1s backwards;
+      }
+
+      .flower__leaf--2 {
+        transform: translateX(-50%) rotate(-30deg);
+      }
+      .flower__leaf--3 {
+        transform: translateX(-50%) rotate(-50deg);
+      }
+      .flower__leaf--4 {
+        transform: translateX(-50%) rotate(-70deg);
+      }
+
+      .flower__leaf--5 {
+        transform: translateX(-50%) rotate(30deg);
+      }
+
+      .flower__leaf--6 {
+        transform: translateX(-50%) rotate(50deg);
+      }
+
+      .flower__leaf--7 {
+        transform: translateX(-50%) rotate(70deg);
+      }
+
+      .flower__leaf--8 {
+        width: 13vmin;
+        height: 11vmin;
+        bottom: 6vmin;
+        left: -30%;
+        border-radius: none;
+        clip-path: none;
+        border-radius: 10vmin 2vmin 10vmin 2vmin;
+        transform: rotate(-55deg);
+        background-image: linear-gradient(
+          to left bottom,
+          #ffa085,
+          #eb8b8b,
+          #492f2f 98%
+        );
+      }
+
+      .flower__fall-down--yellow {
+        animation: flower-fall-down-yellow 8s 1.2s linear forwards infinite;
+      }
+
+      .flower__fall-down--pink {
+        animation: flower-fall-down-pink 5s 1.2s linear forwards infinite;
+      }
+
+      .flower__fall-down--purple {
+        bottom: 4vmin;
+        animation: flower-fall-down-purple 6s 1.2s linear forwards infinite,
+          flower-falling 6s 7.2s linear infinite;
+      }
+
+      @keyframes open-flower {
+        0% {
+          transform: translateX(-50%) rotate(0);
+        }
+      }
+
+      @keyframes open-flowe--middle {
+        0% {
+          opacity: 0;
+          transform: translateX(-50%) scale(0);
+        }
+      }
+
+      @keyframes flower-fall-down-pink {
+        0% {
+          transform: rotate(-55deg);
+        }
+
+        50% {
+          transform: rotateX(-100deg);
+        }
+
+        100% {
+          transform: translate(2vmin, 28vmin);
+        }
+      }
+
+      @keyframes flower-fall-down-yellow {
+        0% {
+          transform: rotate(-55deg);
+        }
+
+        50% {
+          bottom: 1vmin;
+          transform: rotateX(-100deg);
+        }
+
+        100% {
+          transform: translate(2vmin, 50vmin) rotate(150deg);
+        }
+      }
+
+      @keyframes flower-fall-down-purple {
+        0% {
+          transform: rotate(-50deg);
+        }
+
+        25% {
+          bottom: 1vmin;
+          transform: rotateX(-100deg);
+          perspective: 0px;
+        }
+
+        50% {
+          perspective: 0px;
+          transform: translate(-30vmin, 2vmin) rotate(90deg);
+        }
+
+        75% {
+          perspective: 0px;
+          transform: translate(-34vmin, -2vmin);
+        }
+
+        100% {
+          transform-origin: center;
+          transform: translate(-34vmin, -2vmin) rotateY(-80deg) rotateX(35deg);
+        }
+      }
+
+      @keyframes flower-falling {
+        0%,
+        100% {
+          transform-origin: center;
+          transform: translate(-34vmin, -2vmin) rotateY(-80deg) rotateX(35deg);
+        }
+
+        25% {
+          transform-origin: center;
+          transform: translate(-34.4vmin, -2vmin) rotateY(-84deg) rotateX(35deg);
+        }
+
+        50% {
+          transform-origin: center;
+          transform: translate(-32vmin, -4.2vmin) rotateY(-80deg) rotateX(35deg);
+        }
+
+        75% {
+          transform-origin: center;
+          transform: translate(-36vmin, 1.1vmin) rotateY(-80deg) rotateX(35deg);
+        }
+      }
+    </style>
+    <title>Home</title>
+  </head>
+  <body>
+    <div class="hero">
+      <video autoplay loop muted playsinline class="back-video">
+        <source src="{% static 'videos/video.mp4' %}" type="video/mp4" />
+      </video>
+      {% include "navbar.html" %}
+      <div class="content">
+        <h1>E-Gardener</h1>
+        <!-- Add the animate-text class to h2 for animation -->
+        <h2 class="animate-text">
+          Get Plant Recommendation
+          <br />
+          According to Your Soil for our Dream Garden
+        </h2>
+        <a href="{% url 'blog' %}">Explore</a>
+      </div>
+    </div>
+    <!-- Who We Are -->
+    <div class="who-we-are services" id="services">
+      <div class="left-panel">
+        <h1 style="font-size: 60px; margin-left: 100px">Who We Are</h1>
+        <h2 style="margin-left: 100px">
+          E-Gardener is a platform that helps you to get plant recommendation
+          according to your garden
+        </h2>
+      </div>
+      <div class="right-panel">
+        <div class="text-block">
+          <h1 style="font-size: 40px">Gardeners</h1>
+          <h2 style="text-align: justify;">
+            For rooftop gardeners, our package includes IoT solutions for
+            optimal crop care and enhancing the gardening experience. With smart
+            technology, we provide guidance and connectivity to maximize yields
+            for the rooftop gardening process.
+          </h2>
+        </div>
+        <div class="text-block">
+          <h1 style="font-size: 40px">Smart Garden using IOT</h1>
+          <h2 style="text-align: justify;">
+            Our IoT project for rooftop gardeners measures soil nutrient levels,
+            providing real-time data to optimize fertilization and enhance crop
+            health.
+          </h2>
+        </div>
+        <div class="text-block">
+          <h1 style="font-size: 40px">Agriculture Companies</h1>
+          <h2>
+            We work with agricultural input companies and service providers,
+            offering quality agriculture input and advisory services to the
+            farmers
+          </h2>
+        </div>
+        <div class="text-block">
+          <h1 style="font-size: 40px">Buyers</h1>
+          <h2>
+            We source directly from the farmers and supply agriculture produce
+            in bulk quantity to large enterprises, modern trade retailers and
+            wholesale markets.
+          </h2>
+        </div>
+      </div>
+    </div>
+    <!-- animation -->
+    <div class="flower">
+      <div class="f-wrapper">
+        <div class="flower__line"></div>
+        <div class="f">
+          <div class="flower__leaf flower__leaf--1"></div>
+          <div class="flower__leaf flower__leaf--2"></div>
+          <div class="flower__leaf flower__leaf--3"></div>
+          <div class="flower__leaf flower__leaf--4"></div>
+          <div class="flower__leaf flower__leaf--5"></div>
+          <div class="flower__leaf flower__leaf--6"></div>
+          <div class="flower__leaf flower__leaf--7"></div>
+          <div
+            class="flower__leaf flower__leaf--8 flower__fall-down--yellow"
+          ></div>
+        </div>
+      </div>
+      <div class="f-wrapper f-wrapper--2">
+        <div class="flower__line"></div>
+        <div class="f">
+          <div class="flower__leaf flower__leaf--1"></div>
+          <div class="flower__leaf flower__leaf--2"></div>
+          <div class="flower__leaf flower__leaf--3"></div>
+          <div class="flower__leaf flower__leaf--4"></div>
+          <div class="flower__leaf flower__leaf--5"></div>
+          <div class="flower__leaf flower__leaf--6"></div>
+          <div class="flower__leaf flower__leaf--7"></div>
+          <div
+            class="flower__leaf flower__leaf--8 flower__fall-down--pink"
+          ></div>
+        </div>
+      </div>
+      <div class="f-wrapper f-wrapper--3">
+        <div class="flower__line"></div>
+        <div class="f">
+          <div class="flower__leaf flower__leaf--1"></div>
+          <div class="flower__leaf flower__leaf--2"></div>
+          <div class="flower__leaf flower__leaf--3"></div>
+          <div class="flower__leaf flower__leaf--4"></div>
+          <div class="flower__leaf flower__leaf--5"></div>
+          <div class="flower__leaf flower__leaf--6"></div>
+          <div class="flower__leaf flower__leaf--7"></div>
+          <div
+            class="flower__leaf flower__leaf--8 flower__fall-down--purple"
+          ></div>
+        </div>
+      </div>
+      <div class="flower__glass"></div>
+    </div>
+    <!-- Create The Garden That You Have Always Wanted -->
+    <div class="section-with-background">
+      <h2 class="garden-heading">
+        Create The Garden That You Have Always Wanted
+      </h2>
+      <!-- Button 1 with title "Find Plants" -->
+      <div class="round-button">
+        <a href="{% url 'get_recommendations' %}" class="round-button-link">
+          <i class="plant-icon"></i>
+        </a>
+        <span class="button-title" style="color: green; font-weight: bold"
+          >Find Plants</span
+        >
+      </div>
+      <!-- Button 2 with title "Get Design Ideas" -->
+      <div class="round-button">
+        <a href="{% url 'services' %}" class="round-button-link">
+          <i class="flower-icon"></i>
+        </a>
+        <span class="button-title" style="color: green; font-weight: bold"
+          >Get Design Ideas</span
+        >
+      </div>
+      <!-- Button 3 with title "Plant Care" -->
+      <div class="round-button">
+        <a href="{% url 'services' %}" class="round-button-link">
+          <i class="sun-icon"></i>
+        </a>
+        <span class="button-title" style="color: green; font-weight: bold"
+          >Plant Care</span
+        >
+      </div>
+    </div>
+    <!-- Highlights -->
+    <div class="highlight">
+      <div class="left-panel">
+        <h1 style="font-size: 45px; margin-right: auto; text-align: end">
+          Access for Gardeners
+        </h1>
+        <h2 style="font-size: 20px; margin-left: 27%">
+          Unlocking a world of possibilities, our technology-driven approach
+          creates seamless access for gardeners. Elevate your gardening
+          experience with our user-friendly tools and resources, designed to
+          empower you with informed decision-making and ensure a flourishing
+          garden. Our bundled offering integrates smart technologies to monitor
+          and enhance crop growth, streamline guidance, and connect gardeners
+          with markets for a more efficient and productive rooftop gardening
+          venture.
+        </h2>
+        <a href="{% url 'blog' %}" style="margin-left: 27%">Explore</a>
+      </div>
+      <div class="right-panel">
+        <img
+          src="{% static 'images/img1.jpg' %}"
+          alt=""
+          style="margin-left: 20%"
+        />
+      </div>
+    </div>
+    <div class="highlight">
+      <div class="left-panel">
+        <img
+          src="{% static 'images/img3.jpg' %}"
+          alt=""
+          style="margin-left: 25%"
+        />
+      </div>
+      <div class="right-panel">
+        <h1 style="font-size: 45px; margin-left: 20px">
+          Care Your Plant Health
+        </h1>
+        <h2 style="font-size: 20px; margin-left: 20px">
+          Elevate your plant care routine by maintaining good airflow to prevent
+          fungal issues and adopting smart watering practices to avoid stress
+          and disease. Embrace beneficial insects as allies against pests,
+          inspect new plants for health, and promptly remove any sick ones to
+          keep your garden thriving. Nourish your plants with proper nutrients
+          for resilience, and stay vigilant for a flourishing and
+          disease-resistant garden. Stay informed, act promptly, and enjoy a
+          vibrant and healthy plant haven.
+        </h2>
+        <a href="{% url 'services' %}">Explore</a>
+      </div>
+    </div>
+    <div class="highlight">
+      <div class="left-panel">
+        <h1 style="font-size: 45px; margin-right: auto; text-align: end">
+          Build Up Dream Garden
+        </h1>
+        <h2 style="font-size: 20px; margin-left: 24%">
+          Embark on your dream garden journey with our expert tips and
+          resources. From selecting the right plants to mastering essential care
+          practices, we guide you step by step. Cultivate a garden that reflects
+          your vision, bringing beauty and tranquility to your outdoor space.
+          Start today and watch your dream garden come to life.
+        </h2>
+        <a href="{% url 'services' %}" style="margin-left: 23%">Explore</a>
+      </div>
+      <div class="right-panel">
+        <img
+          src="{% static 'images/img2.jpg' %}"
+          alt=""
+          style="margin-left: 20%"
+        />
+      </div>
+    </div>
+    <div class="highlight">
+      <div class="left-panel">
+        <img
+          src="{% static 'images/img4.jpg' %}"
+          alt=""
+          style="margin-left: 23%"
+        />
+      </div>
+      <div class="right-panel">
+        <h1 style="font-size: 45px; margin-left: 20px">
+          Auto Irrigation System
+        </h1>
+        <h2 style="font-size: 20px; margin-left: 20px">
+          The auto water irrigation system for rooftop gardens addresses
+          challenges in urban agriculture by efficiently providing required
+          water without manual intervention, crucial for limited soil and water
+          sources. Integrated with RooftopGardenHub's sensor technology, it
+          enables precise, data-driven watering schedules,enhancing rooftop
+          garden viability and promoting sustainable urban farming.
+        </h2>
+        <a href="{% url 'services' %}">Explore</a>
+      </div>
+    </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var highlights = document.querySelectorAll(".highlight");
+
+        function checkScroll() {
+          highlights.forEach(function (highlight) {
+            var position = highlight.getBoundingClientRect().top;
+            var windowHeight = window.innerHeight;
+
+            if (position < windowHeight * 0.75) {
+              highlight.classList.add("animate");
+            }
+          });
+        }
+
+        // Listen for scroll events
+        window.addEventListener("scroll", checkScroll);
+
+        // Initial check on page load
+        checkScroll();
+      });
+    </script>
+    <!-- slider-->
+    <div class="review">
+      <div class="slider-container">
+        <h2 class="heading" style="font-size: 45px">Motivation</h2>
+        <button class="prev-btn" onclick="prevSlide()">&lt;</button>
+        <div class="slider">
+          <div class="slide">
+            <p
+              class="review-text"
+              style="color: green; font-size: 22px; font-weight: bold"
+            >
+              "Great service! I love my new plants."
+            </p>
+            <p class="review-author">- John Doe</p>
+          </div>
+          <div class="slide">
+            <p
+              class="review-text"
+              style="color: green; font-size: 22px; font-weight: bold"
+            >
+              "Beautiful selection of plants. Highly recommended."
+            </p>
+            <p class="review-author">- Jane Smith</p>
+          </div>
+          <div class="slide">
+            <p
+              class="review-text"
+              style="color: green; font-size: 22px; font-weight: bold"
+            >
+              "Excellent quality and fast delivery."
+            </p>
+            <p class="review-author">- Emma Green</p>
+          </div>
+          <div class="slide">
+            <p
+              class="review-text"
+              style="color: green; font-size: 22px; font-weight: bold"
+            >
+              "Fantastic customer service and a wide variety of plants!"
+            </p>
+            <p class="review-author">- Michael Bold</p>
+          </div>
+          <!-- Add more slides as needed -->
+        </div>
+        <button class="next-btn" onclick="nextSlide()">&gt;</button>
+      </div>
+    </div>
+    <!-- Contact -->
+     <div class="contact">
+    <div class="contact-form">
+      <h2 style="font-size: 30px; text-align: center;">Contact Us</h2>
+      <form method="post">
+        {% csrf_token %}
+        <div class="form-group">
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+          <label for="message">Message:</label>
+          <textarea id="message" name="message" rows="4" required></textarea>
+        </div>
+        <div class="form-group">
+          <button type="submit">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+    <!-- Footer -->
+    <footer>
+      <h4> &copy; 2024 EWU</h4>
+    </footer>
+    <script src="{% static 'js/script.js'  %}"></script>
+    <!--Start of Tawk.to Script-->
+    <script type="text/javascript">
+      var Tawk_API = Tawk_API || {},
+        Tawk_LoadStart = new Date();
+      (function () {
+        var s1 = document.createElement("script"),
+          s0 = document.getElementsByTagName("script")[0];
+        s1.async = true;
+        s1.src = "https://embed.tawk.to/656f6734ff45ca7d47871e92/1hgtima71";
+        s1.charset = "UTF-8";
+        s1.setAttribute("crossorigin", "*");
+        s0.parentNode.insertBefore(s1, s0);
+      })();
+    </script>
+    <!--End of Tawk.to Script-->
+  </body>
+</html>

@@ -1,0 +1,244 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <title>Team</title>
+    <style>
+      /* Hero */
+      .hero {
+        width: 100%;
+        height: 20vh;
+        background-color: #34495e;
+        position: relative;
+        padding: 0 5%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      body {
+        background: rgb(2, 0, 36);
+        background: radial-gradient(
+          circle,
+          rgba(2, 0, 36, 1) 0%,
+          rgba(218, 233, 236, 1) 0%,
+          rgba(174, 193, 223, 1) 43%
+        );
+      }
+
+      nav {
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding: 20px 5%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      nav .logo {
+        max-width: 180px;
+        width: 100%;
+        height: auto;
+      }
+
+      nav ul li {
+        list-style: none;
+        display: inline-block;
+        margin-left: 20px;
+      }
+
+      nav ul li a {
+        text-decoration: none;
+        font-size: 20px;
+        color: #fff;
+      }
+
+      nav ul li a:hover {
+        color: #027351;
+      }
+
+      .highlight {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+      }
+
+      .highlight h1,
+      h2 {
+        color: #000000;
+      }
+
+      .highlight h1 {
+        font-size: 3vw;
+        /* margin-left: auto */
+      }
+
+      .highlight h2 {
+        padding-top: 6dvh;
+        font-size: 2.5dvh;
+        width: 75%;
+        font-weight: 400;
+        padding-bottom: 5dvh;
+        text-align: justify;
+        /* margin-left: 20% */
+      }
+
+      .highlight a {
+        text-decoration: none;
+        color: #027351;
+        font-size: 3dvh;
+        font-weight: 700;
+        padding: 1dvh 5dvh;
+        border: #027351 solid 1px;
+        border-radius: 50px;
+        /* margin-left: 23%; */
+        /* margin-top: auto; */
+      }
+
+      .highlight a:hover {
+        background-color: #027351;
+        color: #ffffff;
+        transition: 0.5s;
+      }
+
+      .highlight .left-panel {
+        overflow: hidden;
+      }
+
+      .highlight .right-panel {
+        overflow: hidden;
+      }
+
+      .highlight .right-panel img {
+        border-radius: 5px;
+        height: 80%;
+        width: auto;
+        display: block;
+        margin-left: 25%;
+      }
+
+      .highlight .left-panel img {
+        border-radius: 5px;
+        height: 80%;
+        width: auto;
+        display: block;
+        margin-left: 25%;
+      }
+
+      /* Initial state of the highlight sections */
+      .highlight {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 1s, transform 1s;
+      }
+
+      /* Animated state of the highlight sections */
+      .highlight.animate {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="hero team">{% include "navbar.html" %}</div>
+
+    <!-- Team Members -->
+    <div class="content"></div>
+    <div class="highlight team-details">
+      <div class="left-panel" style="text-align: end">
+        <h1 style="margin-left: auto; font-size: 45px">Al Ehteslum Korim</h1>
+        <h2 style="margin-left: auto; text-align: end">
+          ID: 2019-3-60-094 <br />
+          Student, CSE, EWU
+        </h2>
+      </div>
+
+      <div class="right-panel">
+        <img
+          src="{% static 'images/korim4.jpg' %}"
+          alt=""
+          style="margin-left: 0"
+        />
+      </div>
+    </div>
+
+    <div class="highlight team-details">
+      <div class="left-panel">
+        <img src="{% static '' %}" alt="" style="margin-left: auto" />
+      </div>
+
+      <div class="right-panel">
+        <h1 style="margin-left: auto; font-size: 45px">Sanjid Khan</h1>
+        <h2>
+          ID: 2021-3-60-065
+          <br />
+          Student, CSE, EWU
+        </h2>
+      </div>
+    </div>
+    <div class="highlight team-details">
+      <div class="left-panel" style="text-align: end">
+        <h1 style="margin-left: auto; font-size: 45px">
+          Mahjabin Tasnim Samiha
+        </h1>
+        <h2 style="margin-left: auto; text-align: end">
+          ID: 2021-3-60-271 <br />
+          Student, CSE, EWU
+        </h2>
+      </div>
+
+      <div class="right-panel">
+        <img src="{% static '' %}" alt="" style="margin-left: 0" />
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var highlights = document.querySelectorAll(".highlight");
+
+        function checkScroll() {
+          highlights.forEach(function (highlight) {
+            var position = highlight.getBoundingClientRect().top;
+            var windowHeight = window.innerHeight;
+
+            if (position < windowHeight * 0.75) {
+              highlight.classList.add("animate");
+            }
+          });
+        }
+
+        // Listen for scroll events
+        window.addEventListener("scroll", checkScroll);
+
+        // Initial check on page load
+        checkScroll();
+      });
+    </script>
+
+    <!-- Footer -->
+    <footer>
+      <h4>&copy; 2024 EWU</h4>
+    </footer>
+
+    <!--Start of Tawk.to Script-->
+    <script type="text/javascript">
+      var Tawk_API = Tawk_API || {},
+        Tawk_LoadStart = new Date();
+      (function () {
+        var s1 = document.createElement("script"),
+          s0 = document.getElementsByTagName("script")[0];
+        s1.async = true;
+        s1.src = "https://embed.tawk.to/656f6734ff45ca7d47871e92/1hgtima71";
+        s1.charset = "UTF-8";
+        s1.setAttribute("crossorigin", "*");
+        s0.parentNode.insertBefore(s1, s0);
+      })();
+    </script>
+    <!--End of Tawk.to Script-->
+  </body>
+</html>

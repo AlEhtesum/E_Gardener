@@ -1,0 +1,13 @@
+{
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": true,
+  "[python]": {
+    "editor.defaultFormatter": "ms-vsliveshare.vsliveshare"
+  },
+  "[django-html]": {
+    "editor.defaultFormatter": "ms-vsliveshare.vsliveshare"
+  },
+  "files.autoSave": "afterDelay",
+  "files.autoSaveDelay": 500
+}

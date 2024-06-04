@@ -1,0 +1,131 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>Signin</title>
+  </head>
+  <body>
+    <div class="hero team">
+      {% include "navbar.html" %}
+      <div class="content">
+        <h1 style="font-size: 50px">Sign Up</h1>
+      </div>
+    </div>
+    <div class="sign-up-container">
+      <form action="/signup" method="post" class="form" id="form">
+        {% csrf_token %} {% if messages %} {% for message in messages %}
+        <div class="alert alert-info">{{ message }}</div>
+        {% endfor %} {% endif %}
+        <div class="form-group">
+          <label for="username" class="form-label">Username</label>
+          <input
+            type="text"
+            class="form-control"
+            id="username"
+            name="username"
+            placeholder="Create your username here (only letters and numbers)"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="fname" class="form-label">First Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="fname"
+            name="fname"
+            placeholder="Enter Your First Name"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="lname" class="form-label">Last Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="lname"
+            name="lname"
+            placeholder="Enter Your Last Name"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="email" class="form-label">Email address</label>
+          <input
+            type="email"
+            class="form-control"
+            id="email"
+            name="email"
+            placeholder="Enter Your Email address"
+            aria-describedby="emailHelp"
+            required
+          />
+          <div id="emailHelp" class="form-text">
+            We'll never share your email with anyone else.
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="pass1" class="form-label">Password</label>
+          <input
+            type="password"
+            class="form-control"
+            id="pass1"
+            name="pass1"
+            placeholder="Create Your Password"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="pass2" class="form-label">Confirm Password</label>
+          <input
+            type="password"
+            class="form-control"
+            id="pass2"
+            name="pass2"
+            placeholder="Confirm Your Password"
+            required
+          />
+        </div>
+        <button class="btn" type="submit">Sign Up</button>
+        <p>Already have an account? <a href="{% url 'signin' %}">Sign in</a></p>
+        <p>Back to home? <a href="{% url 'home' %}">Home</a></p>
+      </form>
+    </div>
+    <!-- Footer -->
+    <footer>
+      <h4>&copy; 2024 EWU</h4>
+    </footer>
+    {% load static %}
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <!-- Your head content remains unchanged -->
+      </head>
+
+      <body>
+        <!-- Your existing content -->
+
+        <!--Start of Tawk.to Script-->
+        <script type="text/javascript">
+          var Tawk_API = Tawk_API || {},
+            Tawk_LoadStart = new Date();
+          (function () {
+            var s1 = document.createElement("script"),
+              s0 = document.getElementsByTagName("script")[0];
+            s1.async = true;
+            s1.src = "https://embed.tawk.to/656f6734ff45ca7d47871e92/1hgtima71";
+            s1.charset = "UTF-8";
+            s1.setAttribute("crossorigin", "*");
+            s0.parentNode.insertBefore(s1, s0);
+          })();
+        </script>
+        <!--End of Tawk.to Script-->
+
+        <script src="{% static 'js/script.js' %}"></script>
+      </body>
+    </html>
+  </body>
+</html>

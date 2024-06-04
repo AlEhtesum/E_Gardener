@@ -1,0 +1,1274 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "poppins", sans-serif;
+}
+
+/* Hero */
+.hero {
+  width: 100%;
+  height: 100vh;
+  background-image: linear-gradient(rgba(12, 3, 51, 0.3), rgba(12, 3, 51, 0.3));
+  position: relative;
+  padding: 0 5%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero video {
+  width: 100%;
+}
+
+nav {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 20px 5%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+nav .logo {
+  max-width: 180px;
+  width: 100%;
+  height: auto;
+}
+
+nav ul li {
+  list-style: none;
+  display: inline-block;
+  margin-left: 20px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  font-size: 20px;
+  color: #fff;
+}
+
+nav ul li a:hover {
+  color: #027351;
+}
+
+.content {
+  text-align: center;
+}
+
+.content h1 {
+  font-size: 6vw;
+  color: #fff;
+  font-weight: 600;
+  transition: 0.3s;
+}
+.content h2 {
+  font-size: 2vw;
+  color: #fff;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.content h1:hover {
+  -webkit-text-stroke: 1px #fff;
+  color: transparent;
+}
+
+.content a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 2vw;
+  display: inline-block;
+  border: 1px solid #fff;
+  padding: 10px 20px;
+  border-radius: 20px;
+  margin-top: 10px;
+}
+
+.back-video {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+}
+
+/* who-we-are */
+.who-we-are {
+  background-color: #125f4c;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+}
+
+.who-we-are h1,
+h2 {
+  color: #ffffff;
+}
+
+.who-we-are .left-panel h1 {
+  font-size: 6vw;
+}
+
+.who-we-are .left-panel h2 {
+  padding-top: 5dvh;
+  font-size: 2.5dvh;
+  width: 80%;
+  font-weight: 400;
+  color: #ffffff;
+}
+
+.left-panel,
+.right-panel {
+  flex: 1;
+  padding: 20px;
+  padding-left: 5dvh;
+  padding-right: 5dvh;
+  padding-top: 20dvh;
+}
+
+.who-we-are .text-block {
+  border-top: #ffffff solid 1px;
+}
+
+.who-we-are .right-panel h1 {
+  font-size: 5dvh;
+  padding-top: 2dvh;
+  /* font-weight: 500; */
+}
+
+.who-we-are .right-panel h2 {
+  padding-top: 2dvh;
+  font-size: 2.5dvh;
+  padding-bottom: 2dvh;
+  font-weight: 400;
+  color: #ffffff;
+}
+/* highlight */
+
+.highlight {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+}
+
+.highlight h1,
+h2 {
+  color: #000000;
+}
+
+.highlight h1 {
+  font-size: 3vw;
+  /* margin-left: auto */
+}
+
+.highlight h2 {
+  padding-top: 6dvh;
+  font-size: 2.5dvh;
+  width: 75%;
+  font-weight: 400;
+  padding-bottom: 5dvh;
+  text-align: justify;
+  /* margin-left: 20% */
+}
+
+.highlight a {
+  text-decoration: none;
+  color: #027351;
+  font-size: 3dvh;
+  font-weight: 700;
+  padding: 1dvh 5dvh;
+  border: #027351 solid 1px;
+  border-radius: 50px;
+  /* margin-left: 23%; */
+  /* margin-top: auto; */
+}
+
+.highlight a:hover {
+  background-color: #027351;
+  color: #ffffff;
+  transition: 0.5s;
+}
+
+.highlight .left-panel {
+  overflow: hidden;
+}
+
+.highlight .right-panel {
+  overflow: hidden;
+}
+
+.highlight .right-panel img {
+  border-radius: 5px;
+  height: 80%;
+  width: auto;
+  display: block;
+  margin-left: 25%;
+}
+
+.highlight .left-panel img {
+  border-radius: 5px;
+  height: 80%;
+  width: auto;
+  display: block;
+  margin-left: 25%;
+}
+
+/* Initial state of the highlight sections */
+.highlight {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1s, transform 1s;
+}
+
+/* Animated state of the highlight sections */
+.highlight.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Motivation */
+.review {
+  font-family: "Arial", sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50vh;
+}
+
+.review {
+  background-image: url("/static/images/background.jpg");
+  /* Replace with the actual path to your background image */
+  background-size: cover;
+  background-position: center;
+  /* Add other background properties as needed */
+  height: 500px;
+  /* Adjust the height as needed */
+  width: 100%;
+  /* Set width to 100% to cover the entire width of the container */
+  margin-top: 20px;
+  /* Adjust the top margin as needed */
+  position: relative;
+}
+
+/* Add this CSS to your existing stylesheet */
+
+.heading {
+  color: rgb(54, 99, 85);
+  text-align: center;
+  font-size: 35px;
+  font-weight: bold;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.slider-container {
+  position: relative;
+  width: 80%;
+  overflow: hidden;
+  margin: 0 auto;
+  /* Center the slider container */
+}
+
+.prev-btn,
+.next-btn {
+  font-size: 30px;
+  background: none;
+  border: none;
+  color: #0a0909;
+  cursor: pointer;
+  outline: none;
+}
+
+.slider {
+  display: flex;
+  align-items: center;
+  /* Center the content vertically */
+  transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+  min-width: 100%;
+  box-sizing: border-box;
+  text-align: center;
+  /* Center the content horizontally */
+}
+
+.review-text {
+  font-size: 18px;
+}
+
+.review-author {
+  margin-top: 10px;
+  font-style: italic;
+  color: #555;
+}
+
+/* Contact */
+.contact {
+  font-family: "Arial", sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.contact-form {
+  width: 100%;
+  max-width: 50%;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.form-group textarea {
+  resize: vertical;
+}
+
+.form-group button {
+  background-color: #ffffff;
+  text-decoration: none;
+  color: #027351;
+  font-size: 3dvh;
+  font-weight: 700;
+  padding: 1dvh 5dvh;
+  border: #027351 solid 1px;
+  border-radius: 50px;
+  margin-left: auto;
+}
+
+.form-group button:hover {
+  background-color: #027351;
+  color: #ffffff;
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+/* Media */
+@media (max-width: 768px) {
+  .hero {
+    padding: 0 10px;
+  }
+
+  nav {
+    padding: 10px 5%;
+  }
+
+  nav ul li {
+    margin-left: 10px;
+  }
+
+  .content h1 {
+    font-size: 12vw;
+  }
+
+  .content a {
+    font-size: 4vw;
+    padding: 8px 16px;
+    border-radius: 15px;
+    margin-top: 10px;
+  }
+}
+
+/* Footer */
+footer {
+  background-color: #027351;
+  height: 8vh;
+  text-align: center;
+  color: #ffffff;
+
+  bottom: 0;
+}
+
+footer h4 {
+  padding-top: 4vh;
+}
+
+/* about */
+.about {
+  width: 100%;
+  height: 70vh;
+  /* height: 400px; */
+  /* background-image: url("/static/images/team.jpg"); */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.about h2 {
+  font-size: larger;
+}
+
+/* team */
+
+.team {
+  height: 35vh;
+}
+
+.team-details {
+  height: 60vh;
+}
+
+/* Blog */
+.blog-container * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.blog-container {
+  font-family: sans-serif;
+  color: #333;
+}
+
+.section__top-categories {
+  width: 100%;
+  background-color: var(--color-primary-light);
+  padding: 2rem;
+  text-align: center;
+}
+
+.section__top-categories h1 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.cat_container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
+  grid-gap: 2.5rem;
+  align-items: start;
+  margin: 2.5rem var(--margin-global);
+}
+
+.cat_container a {
+  text-decoration: none;
+}
+
+.card_cat {
+  width: 100%;
+  padding: 0;
+  background-color: var(--color-white);
+  text-align: left;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
+  transition: all 0.4s;
+  height: 50vh;
+  overflow: hidden;
+}
+
+.card_cat:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+  background-color: #e9eff1;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+img {
+  width: 100%;
+}
+
+.description {
+  margin: 1rem;
+}
+
+.description h2 {
+  font-size: 1.2rem;
+}
+
+.description p {
+  text-align: justify;
+  margin-top: 5px;
+}
+
+/* read */
+.read {
+  height: 17vh;
+}
+
+.read-container * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.read-container {
+  font-family: sans-serif;
+  color: #333;
+}
+
+main {
+  width: 70dvw;
+  margin: 20px auto;
+}
+
+.title {
+  font-size: 1.8rem;
+  line-height: 2rem;
+  font-weight: 900;
+  text-transform: capitalize;
+}
+
+.author {
+  font-size: 1.1rem;
+  margin-top: 10px;
+  font-weight: 700;
+}
+
+.date {
+  font-size: 0.7rem;
+}
+
+img {
+  width: 100%;
+  margin: 1rem 0;
+}
+
+.details {
+  font-size: 1.1rem;
+  font-weight: 500;
+  line-height: 1.5rem;
+}
+
+/* signin */
+.sign-in-container {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  width: 400px;
+  margin: 20px auto;
+  text-align: center;
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+
+.sign-in-container h2 {
+  color: #333;
+}
+
+.sign-in-container label {
+  display: block;
+  margin-bottom: 8px;
+  color: #555;
+}
+
+.sign-in-container input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 16px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.sign-in-container button {
+  background-color: #027351;
+  color: #fff;
+  padding: 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+  transition: background-color 0.3s;
+}
+
+.sign-in-container button:hover {
+  background-color: #45a049;
+}
+
+/* Additional styling for the paragraphs under the button */
+.additional-links {
+  margin-top: 20px;
+}
+
+.additional-links p {
+  margin: 8px 0;
+  color: #555;
+}
+
+.additional-links a {
+  color: #027351;
+  text-decoration: none;
+}
+
+.additional-links a:hover {
+  text-decoration: underline;
+}
+
+/* Signup */
+.sign-up-container {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  width: 400px;
+  margin: 20px auto;
+  text-align: center;
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+
+.sign-up-container h3 {
+  color: #333;
+}
+
+.sign-up-container .form-group {
+  margin-bottom: 16px;
+}
+
+.sign-up-container .form-label {
+  display: block;
+  margin-bottom: 8px;
+  color: #555;
+}
+
+.sign-up-container .form-control {
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.sign-up-container .btn {
+  background-color: #027351;
+  color: #fff;
+  padding: 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+  transition: background-color 0.3s;
+}
+
+.sign-up-container .btn:hover {
+  background-color: #45a049;
+}
+
+.sign-up-container .form-text {
+  color: #777;
+}
+
+.sign-up-container a {
+  color: #027351;
+  text-decoration: none;
+}
+
+.sign-up-container a:hover {
+  text-decoration: underline;
+}
+
+/* Forgot Password */
+.forgot-password-container {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  width: 400px;
+  margin: 20px auto;
+  text-align: center;
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+
+.forgot-password-container h4 {
+  color: #333;
+}
+
+.forgot-password-container .form-group {
+  margin-bottom: 16px;
+}
+
+.forgot-password-container label {
+  display: block;
+  margin-bottom: 8px;
+  color: #555;
+}
+
+.forgot-password-container .form-control {
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.forgot-password-container .btn {
+  background-color: #027351;
+  color: #fff;
+  padding: 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+  transition: background-color 0.3s;
+}
+
+.forgot-password-container .btn:hover {
+  background-color: #45a049;
+}
+
+.forgot-password-container a {
+  color: #027351;
+  text-decoration: none;
+}
+
+.forgot-password-container a:hover {
+  text-decoration: underline;
+}
+
+/* Change Password */
+.change-password-container {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  width: 400px;
+  margin: 20px auto;
+  text-align: center;
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+
+.change-password-container h4 {
+  color: #333;
+}
+
+.change-password-container .form-group {
+  margin-bottom: 16px;
+}
+
+.change-password-container label {
+  display: block;
+  margin-bottom: 8px;
+  color: #555;
+}
+
+.change-password-container .form-control {
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.change-password-container .btn {
+  background-color: #027351;
+  color: #fff;
+  padding: 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+  transition: background-color 0.3s;
+}
+
+.change-password-container .btn:hover {
+  background-color: #45a049;
+}
+
+.change-password-container a {
+  color: #027351;
+  text-decoration: none;
+}
+
+.change-password-container a:hover {
+  text-decoration: underline;
+}
+
+/* Get Recommendations */
+.container {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  margin: 20px auto;
+  text-align: center;
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+
+.form-group {
+  margin-bottom: 16px;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  color: #555;
+}
+
+select,
+button {
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.btn {
+  background-color: #027351;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn:hover {
+  background-color: #45a049;
+}
+
+p {
+  margin-top: 20px;
+  color: #555;
+}
+
+p a {
+  color: #027351;
+  text-decoration: none;
+}
+
+p a:hover {
+  text-decoration: underline;
+}
+
+/* Recommendations */
+.recommendations-container {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  margin: 20px auto;
+  text-align: center;
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+
+ol {
+  list-style-type: decimal;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 8px;
+  color: #333;
+}
+
+.no-recommendations {
+  margin-top: 20px;
+  color: #555;
+}
+
+/* Recommendations */
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.hero-button {
+  background-color: #e3ebe8;
+  color: #fff;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  margin: 0 10px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  font-size: 14px;
+  width: 120px;
+}
+
+/* footer for get reccomendation*/
+.recommendation-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #027351;
+  /* Change this to your desired shade of green */
+  color: #fff;
+  /* Set text color to white or another suitable color */
+  padding: 10px;
+  /* Add padding if necessary */
+  text-align: center;
+  /* Center the content */
+}
+/* footer for blog*/
+.blog {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #027351;
+  /* Change this to your desired shade of green */
+  color: #fff;
+  /* Set text color to white or another suitable color */
+  padding: 35px;
+  height: 8%;
+  /* Add padding if necessary */
+  text-align: center;
+
+  /* Center the content */
+}
+
+/* explore cart */
+.garden-card h3 {
+  color: darkgreen;
+  font-size: 24px;
+}
+
+.garden-card p {
+  color: #333;
+  font-size: 16px;
+}
+
+.center-container {
+  display: flex;
+  flex-wrap: wrap;
+  /* Allow cards to wrap to the next line if there's not enough space */
+  justify-content: space-around;
+  /* Adjust as needed */
+  align-items: center;
+  text-align: center;
+  width: 100%;
+}
+
+.garden-card {
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 15px;
+  padding: 20px;
+  margin: 30px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 18%;
+  /* 25% width for four cards in a row with margin between them */
+  text-align: center;
+  height: 48vh;
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Set a media query to adjust the width for smaller screens if needed */
+@media screen and (max-width: 768px) {
+  .garden-card {
+    width: calc(50% - 20px);
+    /* 50% width for two cards in a row on smaller screens */
+  }
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.garden-types {
+  width: 100%;
+}
+.garden-card:hover {
+  background-color: #f0f0f0;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  transform: scale(1.05);
+}
+
+/* plant-types card */
+.plant-card h3 {
+  color: darkgreen;
+  font-size: 24px;
+}
+
+.plant-card p {
+  color: #333;
+  font-size: 16px;
+}
+
+.center-container {
+  display: flex;
+  flex-wrap: wrap;
+  /* Allow cards to wrap to the next line if there's not enough space */
+  justify-content: space-around;
+  /* Adjust as needed */
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.plant-card {
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 30px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 15%;
+  /* 25% width for four cards in a row with margin between them */
+  text-align: center;
+  height: 45vh;
+  transition: transform 0.3s ease-in-out;
+}
+
+.plant-img {
+  height: 50%;
+  /* Adjust the height as needed */
+  overflow: hidden;
+  border-radius: 8px 8px 0 0;
+  margin-bottom: 20px;
+  /* Rounded corners at the top */
+}
+
+.plant-card img {
+  width: 100%;
+  /* Make the image fill the container */
+  height: 100%;
+  /* Make the image fill the container */
+  object-fit: cover;
+}
+
+/* Set a media query to adjust the width for smaller screens if needed */
+@media screen and (max-width: 768px) {
+  .plant-card {
+    width: calc(50% - 20px);
+    /* 50% width for two cards in a row on smaller screens */
+  }
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.plant-types {
+  width: 100%;
+}
+
+.plant-card:hover {
+  transform: scale(1.05);
+  background-color: #f0f0f0;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* advices */
+
+.advices {
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+}
+
+.card {
+  width: 350px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 40px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  transition: transform 0.3s ease-in-out;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  background-color: #f0f0f0;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.card img {
+  width: 100px;
+  height: 100%;
+  margin-top: 0;
+  /* Remove the gap at the top */
+}
+
+.card .content {
+  padding: 16px;
+}
+
+.card h2 {
+  margin-top: 0;
+  color: #333;
+}
+
+.card p {
+  color: #666;
+}
+
+/*  Add this style specifically for the round button for That garden i want to create */
+/*  Add this style specifically for the round button with plant icon */
+.garden-heading {
+  margin-top: 100px;
+  text-align: center;
+  color: #0e0c0c;
+  /* Adjust the color as needed */
+  font-size: 40px;
+  /* Adjust the font size as needed */
+  margin-bottom: 30px;
+  /* Adjust the margin as needed */
+}
+
+.button-title {
+  display: inline-block;
+  margin-left: 1px;
+  /* Adjust the margin as needed */
+}
+
+.round-button {
+  text-align: center;
+  margin-top: 20px;
+  /* Adjust the margin as needed */
+}
+
+.round-button-link {
+  display: inline-block;
+  background-color: #b7c5cc;
+  /* Change the background color as desired */
+  color: #fff;
+  width: 80px;
+  /* Adjust the width as needed */
+  height: 80px;
+  /* Adjust the height to match the width for a circle */
+  line-height: 80px;
+  /* Vertically center text within the circle */
+  border-radius: 80%;
+  /* Set to 50% for a circular shape */
+  text-decoration: none;
+  font-size: 18px;
+  transition: background-color 0.3s ease;
+  position: relative;
+  /* Position relative for absolute positioning of the icon */
+}
+
+/* Style for the plant icon */
+.plant-icon {
+  position: absolute;
+  top: 55%;
+  left: 55%;
+  transform: translate(-50%, -50%);
+  width: 70px;
+  /* Adjust the icon size as needed */
+  height: 70px;
+  background-image: url("/static/images/plant1.png");
+  /* Replace with the path to your icon */
+  background-size: cover;
+  transition: transform 0.3s ease;
+  /* Add transition for smooth effect */
+}
+
+/* Hover effect for the plant icon */
+.round-button-link:hover .plant-icon {
+  transform: scale(1.1);
+  /* Adjust the scale factor for the hover effect */
+}
+
+.flower-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 65px;
+  /* Adjust the icon size as needed */
+  height: 60px;
+  /* ... existing styles ... */
+  background-image: url("/static/images/idea1.png");
+  background-size: cover;
+  transition: transform 0.3s ease;
+  /* Add transition for smooth effect */
+}
+
+/* Hover effect for the flower icon */
+.round-button-link:hover .flower-icon {
+  transform: scale(1.1);
+  /* Adjust the scale factor for the hover effect */
+}
+
+/* Style for the sun icon */
+.sun-icon {
+  position: absolute;
+  top: 45%;
+  left: 55%;
+  transform: translate(-50%, -50%);
+  width: 70px;
+  /* Adjust the icon size as needed */
+  height: 60px;
+  /* ... existing styles ... */
+  background-image: url("/static/images/care.png");
+  background-size: cover;
+  transition: transform 0.3s ease;
+  /* Add transition for smooth effect */
+}
+
+/* Hover effect for the sun icon */
+.round-button-link:hover .sun-icon {
+  transform: scale(1.1);
+  /* Adjust the scale factor for the hover effect */
+}
+
+.button-title {
+  display: block;
+  text-align: center;
+  margin-top: 10px;
+  /* Adjust the margin as needed */
+  font-size: 16px;
+  /* Adjust the font size as needed */
+  color: #333;
+  /* Adjust the color as needed */
+}
+
+.section-with-background {
+  background-image: url("/static/images/background.jpg");
+  /* Replace with the actual path to your background image */
+  background-size: cover;
+  background-position: center;
+  /* Add other background properties as needed */
+  height: 500px;
+  /* Adjust the height as needed */
+  width: 100%;
+  /* Set width to 100% to cover the entire width of the container */
+  margin-top: 20px;
+  /* Adjust the top margin as needed */
+  position: relative;
+}
+
+.passionate-about-gardening {
+  background-image: url("/static/images/background5.png");
+  /* Replace with the actual path to your background image */
+  background-size: cover;
+  background-position: center;
+  /* Add other background properties as needed */
+  height: 500px;
+  /* Adjust the height as needed */
+  width: auto;
+  /* Set width to 100% to cover the entire width of the container */
+  margin-top: auto;
+  /* Adjust the top margin as needed */
+  position: relative;
+}

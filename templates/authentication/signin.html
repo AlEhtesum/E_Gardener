@@ -1,0 +1,81 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <title>Signin</title>
+  </head>
+  <body>
+    <div class="hero team">
+      {% include "navbar.html" %}
+      <div class="content">
+        <h1 style="font-size: 50px">Signin</h1>
+      </div>
+    </div>
+    <div class="sign-in-container">
+      <form action="/signin" method="post" id="signInForm">
+        {% csrf_token %} {% if messages %} {% for message in messages %}
+        <div class="alert alert-info">{{ message }}</div>
+        {% endfor %} {% endif %}
+        <label for="username">Username</label>
+        <input
+          type="text"
+          id="username"
+          name="username"
+          placeholder="Create your username here(only letters and numbers)"
+          required
+        />
+        <label for="password">Password</label>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          placeholder="Enter Your Password"
+          required
+        />
+        <button type="submit">Sign In</button>
+      </form>
+      <!-- Additional paragraphs under the button -->
+      <div class="additional-links">
+        <p>
+          Did you forget your password?
+          <a href="{% url 'forget_password' %}">Forgot Password</a>
+        </p>
+        <p>Do not have an account? <a href="{% url 'signup' %}">Sign Up</a></p>
+        <p>Back to home? <a href="{% url 'home' %}">Home</a></p>
+      </div>
+    </div>
+    <!-- Footer -->
+    <footer>
+      <h4>&copy; 2024 EWU</h4>
+    </footer>
+    {% load static %}
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <!-- Your head content remains unchanged -->
+      </head>
+      <body>
+        <!-- Your existing content -->
+        <!--Start of Tawk.to Script-->
+        <script type="text/javascript">
+          var Tawk_API = Tawk_API || {},
+            Tawk_LoadStart = new Date();
+          (function () {
+            var s1 = document.createElement("script"),
+              s0 = document.getElementsByTagName("script")[0];
+            s1.async = true;
+            s1.src = "https://embed.tawk.to/656f6734ff45ca7d47871e92/1hgtima71";
+            s1.charset = "UTF-8";
+            s1.setAttribute("crossorigin", "*");
+            s0.parentNode.insertBefore(s1, s0);
+          })();
+        </script>
+        <!--End of Tawk.to Script-->
+        <script src="{% static 'js/script.js' %}"></script>
+      </body>
+    </html>
+  </body>
+</html>

@@ -1,0 +1,253 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+
+      /* Hero */
+      .hero {
+        width: 100%;
+        height: 20vh;
+        background-color: #34495e;
+        position: relative;
+        padding: 0 5%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .hero video {
+        width: 100%;
+      }
+
+      nav {
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding: 20px 5%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      nav .logo {
+        max-width: 180px;
+        width: 100%;
+        height: auto;
+      }
+
+      nav ul li {
+        list-style: none;
+        display: inline-block;
+        margin-left: 20px;
+      }
+
+      nav ul li a {
+        text-decoration: none;
+        font-size: 20px;
+        color: #fff;
+      }
+
+      nav ul li a:hover {
+        color: #027351;
+      }
+
+      /* Card Styles */
+      * {
+        margin: 0;
+        padding: 0;
+        font-family: "Roboto", sans-serif;
+      }
+
+      body {
+        background-image: url("{% static 'images/pexel.jpg' %}");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+
+      h1 {
+        font-size: 2.8rem;
+        color: #181616;
+        margin: 40px 0 20px 0;
+        text-align: center;
+      }
+
+      .cards {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+      }
+
+      .card {
+        margin: 30px;
+        position: relative;
+        max-width: 200px;
+        border-radius: 3%;
+        max-height: 250px;
+        box-shadow: 0 40px 60px -6px rgb(88, 83, 83);
+        overflow: hidden; /* Ensure the content does not overflow */
+      }
+
+      .card-title {
+       color: #fcf4f4;
+        display: block;
+        text-align: center;
+        font-size: 1.3rem;
+        padding: 4px 0; /* Adjust padding to remove excess space */
+        position: absolute;
+        top: 0;
+        background-color: hsl(189, 19%, 42%);
+        width: 100%;
+        z-index: 1; /* Ensure the title is above other elements */
+      }
+
+      .card img {
+        width: 100%;
+        height: 100%; /* Ensure the image covers the card fully */
+        object-fit: cover;
+        display: block;
+        position: relative;
+        z-index: 0;
+      }
+
+      .card-desc {
+        display: block;
+        font-size: 1.1rem;
+        position: absolute;
+        height: 0;
+        top: 0;
+        opacity: 0;
+        padding: 18px 8%;
+        background-color: hwb(0 100% 0%);
+        overflow-y: scroll;
+        transition: 0.8s ease;
+        z-index: 2; /* Ensure the description is above other elements when visible */
+      }
+
+      .card:hover .card-desc {
+        opacity: 1;
+        height: 100%;
+      }
+    </style>
+
+    <title>Hero section</title>
+  </head>
+
+  <body>
+    <div class="hero about">{% include "navbar.html" %}</div>
+    <h1>Grow Fresh Fruits</h1>
+    <div class="cards">
+      <div class="card">
+        <h2 class="card-title">Mango</h2>
+        <img src="{% static 'images/mango.jpg' %}" alt="" />
+        <p class="card-desc">
+        
+        Mango trees produce delicious, juicy fruits that are rich in vitamins A and C.
+        The trees have lush, evergreen leaves and can grow quite tall, providing ample shade.
+       They thrive in tropical and subtropical climates with well-drained soil.
+
+        </p>
+      </div>
+      <div class="card">
+        <h2 class="card-title">Orange</h2>
+        <img src="{% static 'images/orange.jpg' %}" alt="" />
+        <p class="card-desc">
+          Orange trees are famous for their sweet and tangy fruits, which are a great source of vitamin C.
+          The trees have glossy, dark green leaves and fragrant white flowers.
+          They prefer warm climates, full sun, and well-drained soil.
+        </p>
+      </div>
+      <div class="card">
+        <h2 class="card-title">Papaya</h2>
+        <img src="{% static 'images/papaya.jpg' %}" alt="" />
+        <p class="card-desc">
+          Papaya plants bear large, sweet fruits that are high in vitamins A and C.
+          They have a tropical appearance with large, lobed leaves and a single central trunk.
+          Papayas thrive in warm, sunny locations with well-drained soil.
+        </p>
+      </div>
+      <div class="card">
+        <h2 class="card-title">Cherry</h2>
+        <img src="{% static 'images/cherry.jpg' %}" alt="" />
+        <p class="card-desc">
+          Cherry trees produce sweet or tart fruits that are enjoyed fresh or used in various culinary dishes.
+          They have attractive spring blossoms and dark green leaves.
+          Cherries prefer temperate climates, full sun, and well-drained soil.
+        </p>
+      </div>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <h2 class="card-title">Strawberry</h2>
+        <img src="{% static 'images/straw.jpg' %}" alt="" />
+        <p class="card-desc">
+          Strawberry plants produce small, sweet, red fruits that are enjoyed worldwide.
+          They have low-growing foliage and produce white flowers in spring.
+          Strawberries thrive in full sun and well-drained, fertile soil.
+        </p>
+      </div>
+      <div class="card">
+        <h2 class="card-title">Guava</h2>
+        <img src="{% static 'images/guava.jpg' %}" alt="" />
+        <p class="card-desc">
+          Guava trees bear aromatic fruits that are rich in vitamins C and A.
+          They have broad, oval leaves and white flowers.
+          Guavas prefer tropical climates, full sun, and well-drained soil.
+        </p>
+      </div>
+      <div class="card">
+        <h2 class="card-title">Grapes</h2>
+        <img src="{% static 'images/grapes.jpg' %}" alt="" />
+        <p class="card-desc">
+         Grapevines produce clusters of sweet or tart fruits that are used for eating fresh, making wine, and more.
+         They have broad, lobed leaves and tendrils that allow them to climb.
+         Grapes thrive in sunny locations with well-drained soil.
+
+        </p>
+      </div>
+      <div class="card">
+        <h2 class="card-title">Apple</h2>
+        <img src="{% static 'images/apple.jpg' %}" alt="" />
+        <p class="card-desc">
+          Apple trees are famous for their crisp, sweet fruits available in many varieties.
+          They have beautiful spring blossoms and green, glossy leaves.
+          Apples prefer temperate climates, full sun, and well-drained soil.
+        </p>
+      </div>
+    </div>
+ <footer>
+      <h4> &copy; 2024 EWU</h4>
+    </footer>
+    <script type="text/javascript">
+      var Tawk_API = Tawk_API || {},
+        Tawk_LoadStart = new Date();
+      (function () {
+        var s1 = document.createElement("script"),
+          s0 = document.getElementsByTagName("script")[0];
+        s1.async = true;
+        s1.src = "https://embed.tawk.to/656f6734ff45ca7d47871e92/1hgtima71";
+        s1.charset = "UTF-8";
+        s1.setAttribute("crossorigin", "*");
+        s0.parentNode.insertBefore(s1, s0);
+      })();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,180 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <title>{{ plant.title }}</title>
+    <style>
+
+             /* Hero */
+      .hero {
+        width: 100%;
+        height: 20vh;
+       background-color: #34495e;
+        position: relative;
+        padding: 0 5%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .hero video {
+        width: 100%;
+      }
+
+      nav {
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding: 20px 5%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      nav .logo {
+        max-width: 180px;
+        width: 100%;
+        height: auto;
+      }
+
+      nav ul li {
+        list-style: none;
+        display: inline-block;
+        margin-left: 20px;
+      }
+
+      nav ul li a {
+        text-decoration: none;
+        font-size: 20px;
+        color: #fff;
+      }
+
+      nav ul li a:hover {
+        color: #027351;
+      }
+
+      table {
+        width: 50%;
+        margin: auto;
+        border-collapse: collapse;
+      }
+
+      th,
+      td {
+        border: 1px solid black;
+        padding: 8px;
+      }
+      .details {
+        font-size: 1.1rem;
+        font-weight: 500;
+        line-height: 1.5rem;
+        text-align: justify;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="hero read">{% include "navbar.html" %}</div>
+    <!-- <div class="read-container"> -->
+    <main>
+      <h1 class="title" style="text-align: center">{{ plant.plant_name }}</h1>
+      <div style="text-align: center">
+        <img
+          src="{{ plant.plant_image.url }}"
+          alt="Rebecca Ferguson"
+          style="width: 50vh"
+        />
+      </div>
+      <div class="details">{{ plant.plant_description }}</div>
+      <br />
+      <br />
+      <br />
+      <table>
+        <thead>
+          <tr>
+            <th>Field</th>
+            <th>Value</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Pot Size</td>
+            <td>{{ plant.pot_size }}</td>
+          </tr>
+          <tr>
+            <td>N</td>
+            <td>{{ plant.n }}</td>
+          </tr>
+          <tr>
+            <td>P</td>
+            <td>{{ plant.p }}</td>
+          </tr>
+          <tr>
+            <td>K</td>
+            <td>{{ plant.k }}</td>
+          </tr>
+          <tr>
+            <td>CO2</td>
+            <td>{{ plant.co2 }}</td>
+          </tr>
+          <tr>
+            <td>pH</td>
+            <td>{{ plant.ph }}</td>
+          </tr>
+          <tr>
+            <td>EC</td>
+            <td>{{ plant.ec }}</td>
+          </tr>
+          <tr>
+            <td>Moisture</td>
+            <td>{{ plant.moisture }}</td>
+          </tr>
+          <tr>
+            <td>Humidity</td>
+            <td>{{ plant.humidity }}</td>
+          </tr>
+          <tr>
+            <td>Temperature</td>
+            <td>{{ plant.temperature }}</td>
+          </tr>
+          <tr>
+            <td>Soil Type</td>
+            <td>{{ plant.soil_type }}</td>
+          </tr>
+          <tr>
+            <td>Rainfall</td>
+            <td>{{ plant.rainfall }}</td>
+          </tr>
+          <tr>
+            <td>Sunlight</td>
+            <td>{{ plant.sunlight }}</td>
+          </tr>
+          <tr>
+            <td>Sunlight Type</td>
+            <td>{{ plant.sunlight_type }}</td>
+          </tr>
+          <tr>
+            <td>Season</td>
+            <td>{{ plant.season }}</td>
+          </tr>
+          <tr>
+            <td>Watering</td>
+            <td>{{ plant.watering }}</td>
+          </tr>
+          <tr>
+            <td>Plant Type</td>
+            <td>{{ plant.plant_type }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </main>
+    <!-- </div> -->
+    <!-- Footer -->
+    <footer>
+      <h4>&copy; 2023 EWU</h4>
+    </footer>
+  </body>
+</html>

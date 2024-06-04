@@ -1,0 +1,40 @@
+{% load static %}
+<nav>
+  <img class="logo" src="{% static 'images/logo.png' %}" alt="brand logo">
+  <ul>
+    <li>
+      <a href="{% url 'home' %}">Home</a>
+    </li>
+    <li>
+      <a href="{% url 'about' %}">About</a>
+    </li>
+    <li>
+      <a href="{% url 'team' %}">Team</a>
+    </li>
+    <li>
+      <a href="{% url 'blog' %}">Blog</a>
+    </li>
+    <li>
+      <a href="{% url 'services' %}">Garden Design</a>
+    </li>
+       <li>
+      <a href="{% url 'products' %}">Products</a>
+    </li>
+    <li>
+      <a href="{% url 'get_recommendations' %}">Plant Finder</a>
+    </li>
+    {% comment %} Check {% endcomment %}
+    {% if user.is_authenticated %}
+      <li>
+        <a href="{% url 'signout' %}">Logout</a>
+      </li>
+    {% else %}
+      <li>
+        <a href="{% url 'signup' %}">Signup</a>
+      </li>
+      <li>
+        <a href="{% url 'signin' %}">Login</a>
+      </li>
+    {% endif %}
+  </ul>
+</nav>

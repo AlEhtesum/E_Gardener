@@ -1,0 +1,254 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+
+      /* Hero */
+      .hero {
+        width: 100%;
+        height: 20vh;
+        background-color: #34495e;
+        position: relative;
+        padding: 0 5%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .hero video {
+        width: 100%;
+      }
+
+      nav {
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding: 20px 5%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      nav .logo {
+        max-width: 180px;
+        width: 100%;
+        height: auto;
+      }
+
+      nav ul li {
+        list-style: none;
+        display: inline-block;
+        margin-left: 20px;
+      }
+
+      nav ul li a {
+        text-decoration: none;
+        font-size: 20px;
+        color: #fff;
+      }
+
+      nav ul li a:hover {
+        color: #027351;
+      }
+
+      /* Card Styles */
+      * {
+        margin: 0;
+        padding: 0;
+        font-family: "Roboto", sans-serif;
+      }
+
+      body {
+        background-image: url("{% static 'images/pexel.jpg' %}");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+
+      h1 {
+        font-size: 2.8rem;
+        color: #181616;
+        margin: 40px 0 20px 0;
+        text-align: center;
+      }
+
+      .cards {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+      }
+
+      .card {
+        margin: 30px;
+        position: relative;
+        max-width: 200px;
+        border-radius: 3%;
+        max-height: 250px;
+        box-shadow: 0 40px 60px -6px rgb(88, 83, 83);
+        overflow: hidden; /* Ensure the content does not overflow */
+      }
+
+      .card-title {
+       color: #fcf4f4;
+        display: block;
+        text-align: center;
+        font-size: 1.3rem;
+        padding: 4px 0; /* Adjust padding to remove excess space */
+        position: absolute;
+        top: 0;
+        background-color: hsl(189, 19%, 42%);
+        width: 100%;
+        z-index: 1; /* Ensure the title is above other elements */
+      }
+
+      .card img {
+        width: 100%;
+        height: 100%; /* Ensure the image covers the card fully */
+        object-fit: cover;
+        display: block;
+        position: relative;
+        z-index: 0;
+      }
+
+      .card-desc {
+        display: block;
+        font-size: 1.1rem;
+        position: absolute;
+        height: 0;
+        top: 0;
+        opacity: 0;
+        padding: 18px 8%;
+        background-color: hwb(0 100% 0%);
+        overflow-y: scroll;
+        transition: 0.8s ease;
+        z-index: 2; /* Ensure the description is above other elements when visible */
+      }
+
+      .card:hover .card-desc {
+        opacity: 1;
+        height: 100%;
+      }
+    </style>
+
+    <title>Hero section</title>
+  </head>
+
+  <body>
+    <div class="hero about">{% include "navbar.html" %}</div>
+    <h1>herb Good For Health</h1>
+    <div class="cards">
+      <div class="card">
+        <h2 class="card-title">Tulip</h2>
+        <img src="{% static 'images/tuli.jpg' %}" alt="" />
+        <p class="card-desc">
+         Tulips are vibrant, cup-shaped flowers originating from Central Asia, 
+         widely associated with Dutch horticulture. Blooming in spring, they symbolize love and rebirth. 
+         Available in numerous varieties and colors, tulips are a popular choice for gardens and floral displays.
+
+        </p>
+      </div>
+      <div class="card">
+        <h2 class="card-title">Cilantro</h2>
+        <img src="{% static 'images/cilantro.jpg' %}" alt="" />
+        <p class="card-desc">
+          Cilantro, also known as coriander leaves, is a pungent herb popular in global cuisines, adding a fresh, 
+          citrusy flavor. Its distinctive aroma and taste make it a staple in dishes ranging from salsa to curries, salads, 
+          and soups. Loved by some for its vibrant taste and loathed by 
+          others for its soapy flavor, cilantro is undeniably a polarizing herb in culinary conversations.
+        </p>
+      </div>
+      <div class="card">
+        <h2 class="card-title">Aloe Vera</h2>
+        <img src="{% static 'images/Aloe.jpg' %}" alt="" />
+        <p class="card-desc">
+          Aloe vera, a succulent plant originating from the Arabian Peninsula, is renowned for its medicinal properties. 
+          Its gel-filled leaves are used topically to soothe sunburns, hydrate skin, and treat minor wounds. Rich in antioxidants and vitamins, 
+          aloe vera is also consumed in juices and supplements for potential internal health benefits.
+        </p>
+      </div>
+      <div class="card">
+        <h2 class="card-title">Basil Seed</h2>
+        <img src="{% static 'images/basil.jpg' %}" alt="" />
+        <p class="card-desc">
+          Basil seeds, also known as sabja seeds or tukmaria, are tiny black seeds derived from sweet basil plants. 
+          They are often used in Asian desserts, beverages, and as a natural thickening agent, and are prized for 
+          their potential health benefits, including digestive aid and hydration.
+        </p>
+      </div>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <h2 class="card-title">Mint leaf</h2>
+        <img src="{% static 'images/mint.jpg' %}" alt="" />
+        <p class="card-desc">
+          Mint leaves, aromatic herbs native to Europe and Asia, are prized for their refreshing flavor and fragrance. 
+          Widely used in culinary and medicinal applications, they add a cooling touch to drinks, salads, and desserts. 
+          Rich in antioxidants and menthol, mint leaves also offer potential digestive and respiratory health benefits.
+        </p>
+      </div>
+      <div class="card">
+        <h2 class="card-title">Curry Leaf</h2>
+        <img src="{% static 'images/curry.jpg' %}" alt="" />
+        <p class="card-desc">
+          Curry leaves, aromatic foliage native to South Asia, are integral to Indian cuisine,
+           imparting a distinctive flavor and fragrance. Used primarily in tempering and seasoning, 
+           they elevate dishes like curries, soups, and rice. Beyond their culinary role, curry leaves are also valued 
+          in traditional medicine for their potential health benefits, including aiding digestion and promoting hair health.
+        </p>
+      </div>
+      <div class="card">
+        <h2 class="card-title">Rosemary</h2>
+        <img src="{% static 'images/rosemary.jpg' %}" alt="" />
+        <p class="card-desc">
+          Rosemary, an aromatic herb native to the Mediterranean, boasts a robust flavor profile reminiscent
+           of pine and citrus. Widely used in culinary creations, from roasted meats to savory breads and infused oils, 
+           it adds depth and fragrance to dishes. Beyond the kitchen, rosemary is revered for its potential health benefits, 
+           believed to enhance memory and promote overall well-being.
+
+        </p>
+      </div>
+      <div class="card">
+        <h2 class="card-title">celery</h2>
+        <img src="{% static 'images/celery.jpg' %}" alt="" />
+        <p class="card-desc">
+          Celery is a crunchy, low-calorie vegetable known for its distinctive flavor and high water content. 
+          It's commonly used in salads, soups, and stir-fries, and is packed with vitamins, minerals, and antioxidants.
+        </p>
+      </div>
+    </div>
+ <footer>
+      <h4> &copy; 2024 EWU</h4>
+    </footer>
+    <script type="text/javascript">
+      var Tawk_API = Tawk_API || {},
+        Tawk_LoadStart = new Date();
+      (function () {
+        var s1 = document.createElement("script"),
+          s0 = document.getElementsByTagName("script")[0];
+        s1.async = true;
+        s1.src = "https://embed.tawk.to/656f6734ff45ca7d47871e92/1hgtima71";
+        s1.charset = "UTF-8";
+        s1.setAttribute("crossorigin", "*");
+        s0.parentNode.insertBefore(s1, s0);
+      })();
+    </script>
+  </body>
+</html>

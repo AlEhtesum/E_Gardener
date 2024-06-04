@@ -1,0 +1,536 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <style>
+      /* Hero */
+      .hero {
+        width: 100%;
+        height: 20vh;
+        background-color: #34495e;
+        position: relative;
+        padding: 0 5%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+  
+      nav {
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding: 20px 5%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      nav .logo {
+        max-width: 180px;
+        width: 100%;
+        height: auto;
+      }
+
+      nav ul li {
+        list-style: none;
+        display: inline-block;
+        margin-left: 20px;
+      }
+
+      nav ul li a {
+        text-decoration: none;
+        font-size: 20px;
+        color: #fff;
+      }
+
+      nav ul li a:hover {
+        color: #027351;
+      }
+ 
+
+      /* Custom styles for garden ideas */
+      .garden-ideas {
+       margin-left: 180px;
+        padding: 20px;
+        background-color: #f7f7f7;
+        border-radius: 10px;
+        width: 80%;
+      }
+
+      .garden-ideas h2 {
+        font-size: 3.5dvh;
+        color: #027351;
+        font-weight: bold;
+      }
+
+      .garden-ideas ul {
+        list-style: disc;
+        padding-left: 20px;
+      }
+
+      .garden-ideas ul li {
+        font-size: 2dvh;
+        color: #333;
+        margin: 10px 0;
+      }
+      
+      /* animate */
+
+      .flower {
+        width: 1px; /* Adjust the width to your desired size */
+        height: 1px; /* Adjust the height to your desired size */
+        margin-left: 10px;
+        position: relative;
+      }
+
+      .f-wrapper {
+        position: absolute;
+        left: 45%;
+        bottom: 2vmin;
+      }
+
+      .f-wrapper--2 {
+        left: 50%;
+        bottom: 5%;
+        transform-origin: 10% left;
+        transform: rotate(20deg);
+      }
+
+      .f-wrapper--3 {
+        left: 30%;
+        bottom: 5%;
+        transform-origin: 10% left;
+        transform: rotate(-10deg);
+      }
+
+      .f-wrapper--3 .flower__line {
+        height: 45vmin;
+        position: relative;
+      }
+
+      .f-wrapper--3 .flower__line::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 6vmin;
+        height: 6vmin;
+        transform: translate(-69%, -30%) rotate(-5deg);
+        border-radius: 10vmin 10vmin 0 0;
+        border: 2vmin solid #104d4e;
+        border-bottom: transparent;
+        border-left: transparent;
+      }
+
+      .f-wrapper--3 .flower__line::before {
+        content: "";
+        position: absolute;
+        left: -40%;
+        top: -1%;
+        width: 6vmin;
+        height: 2vmin;
+        transform-origin: right;
+        transform: translate(-100%, -80%) rotate(-20deg);
+        background-color: #104d4e;
+        border-radius: 2vmin;
+      }
+
+      .f-wrapper--3 .flower__line {
+        background-image: linear-gradient(to top, #142544, #104d4e);
+      }
+
+      .f-wrapper--2 .flower__line {
+        height: 45vmin;
+      }
+
+      .f-wrapper--2 .f {
+        transform: translateX(-50%) rotate(20deg);
+      }
+
+      .f-wrapper--3 .f {
+        transform: translate(-350%, -50%) rotate(-120deg);
+      }
+
+      .f-wrapper--2 .flower__leaf:not(:first-child) {
+        width: 3.8vmin;
+        height: 10vmin;
+        background-image: linear-gradient(
+          to bottom,
+          #ff43b6,
+          #c22887,
+          #1a233a 99%
+        );
+      }
+
+      .f-wrapper--3 .flower__leaf:not(:first-child) {
+        width: 3.8vmin;
+        height: 10vmin;
+        background-image: linear-gradient(
+          to bottom,
+          #ad2be0,
+          #712291,
+          #1a233a 99%
+        );
+      }
+
+      .f-wrapper--3 .flower__leaf--1 {
+        width: 8vmin;
+        height: 10vmin;
+        bottom: 2vmin;
+        background-color: #ad2be0;
+      }
+
+      .f-wrapper--2 .flower__leaf--1 {
+        width: 8vmin;
+        height: 10vmin;
+        bottom: 2vmin;
+        background-color: #de118b;
+      }
+
+      .f-wrapper--2 .f .flower__leaf--8 {
+        width: 10vmin;
+        height: 9vmin;
+        bottom: 3vmin;
+        left: -30%;
+        transform: rotate(-50deg);
+        background-image: linear-gradient(to left bottom, #ff43b6, #4d1337);
+      }
+
+      .f-wrapper--3 .f .flower__leaf--8 {
+        width: 10vmin;
+        height: 9vmin;
+        left: -10% !important;
+        background-image: linear-gradient(to left bottom, #ad2be0, #712291);
+      }
+
+      .flower__line {
+        width: 2vmin;
+        height: 56vmin;
+        background-image: linear-gradient(
+          to left top,
+          #82fdff 20%,
+          #142544,
+          #104d4e
+        );
+        border-radius: 4vmin;
+      }
+
+      .f {
+        position: absolute;
+        top: 1vmin;
+        left: 50%;
+        transform: translateX(-50%) rotate(-10deg);
+        width: 2vmin;
+        height: 2vmin;
+      }
+
+      .flower__leaf {
+        position: absolute;
+        left: 50%;
+        bottom: 2vmin;
+        transform: translateX(-50%);
+        width: 5vmin;
+        height: 14vmin;
+        background-image: linear-gradient(
+          to bottom,
+          #ffa085,
+          #fa7373,
+          #1a233a 99%
+        );
+
+        clip-path: ellipse(50% 50% at 50% 50%);
+        transform-origin: center bottom;
+        animation: open-flower 2s 1s backwards;
+      }
+
+      .flower__leaf--1 {
+        width: 10vmin;
+        height: 12vmin;
+        bottom: 3vmin;
+        border-radius: 50% 50% 50% 50% / 80% 80% 20% 20%;
+        background-color: #e24f5f;
+        background-image: none;
+        animation: open-flowe--middle 1.4s 1s backwards;
+      }
+
+      .flower__leaf--2 {
+        transform: translateX(-50%) rotate(-30deg);
+      }
+      .flower__leaf--3 {
+        transform: translateX(-50%) rotate(-50deg);
+      }
+      .flower__leaf--4 {
+        transform: translateX(-50%) rotate(-70deg);
+      }
+
+      .flower__leaf--5 {
+        transform: translateX(-50%) rotate(30deg);
+      }
+
+      .flower__leaf--6 {
+        transform: translateX(-50%) rotate(50deg);
+      }
+
+      .flower__leaf--7 {
+        transform: translateX(-50%) rotate(70deg);
+      }
+
+      .flower__leaf--8 {
+        width: 13vmin;
+        height: 11vmin;
+        bottom: 6vmin;
+        left: -30%;
+        border-radius: none;
+        clip-path: none;
+        border-radius: 10vmin 2vmin 10vmin 2vmin;
+        transform: rotate(-55deg);
+        background-image: linear-gradient(
+          to left bottom,
+          #ffa085,
+          #eb8b8b,
+          #492f2f 98%
+        );
+      }
+
+      .flower__fall-down--yellow {
+        animation: flower-fall-down-yellow 8s 1.2s linear forwards infinite;
+      }
+
+      .flower__fall-down--pink {
+        animation: flower-fall-down-pink 5s 1.2s linear forwards infinite;
+      }
+
+      .flower__fall-down--purple {
+        bottom: 4vmin;
+        animation: flower-fall-down-purple 6s 1.2s linear forwards infinite,
+          flower-falling 6s 7.2s linear infinite;
+      }
+
+      @keyframes open-flower {
+        0% {
+          transform: translateX(-50%) rotate(0);
+        }
+      }
+
+      @keyframes open-flowe--middle {
+        0% {
+          opacity: 0;
+          transform: translateX(-50%) scale(0);
+        }
+      }
+
+      @keyframes flower-fall-down-pink {
+        0% {
+          transform: rotate(-55deg);
+        }
+
+        50% {
+          transform: rotateX(-100deg);
+        }
+
+        100% {
+          transform: translate(2vmin, 28vmin);
+        }
+      }
+
+      @keyframes flower-fall-down-yellow {
+        0% {
+          transform: rotate(-55deg);
+        }
+
+        50% {
+          bottom: 1vmin;
+          transform: rotateX(-100deg);
+        }
+
+        100% {
+          transform: translate(2vmin, 50vmin) rotate(150deg);
+        }
+      }
+
+      @keyframes flower-fall-down-purple {
+        0% {
+          transform: rotate(-50deg);
+        }
+
+        25% {
+          bottom: 1vmin;
+          transform: rotateX(-100deg);
+          perspective: 0px;
+        }
+
+        50% {
+          perspective: 0px;
+          transform: translate(-30vmin, 2vmin) rotate(90deg);
+        }
+
+        75% {
+          perspective: 0px;
+          transform: translate(-34vmin, -2vmin);
+        }
+
+        100% {
+          transform-origin: center;
+          transform: translate(-34vmin, -2vmin) rotateY(-80deg) rotateX(35deg);
+        }
+      }
+
+      @keyframes flower-falling {
+        0%,
+        100% {
+          transform-origin: center;
+          transform: translate(-34vmin, -2vmin) rotateY(-80deg) rotateX(35deg);
+        }
+
+        25% {
+          transform-origin: center;
+          transform: translate(-34.4vmin, -2vmin) rotateY(-84deg) rotateX(35deg);
+        }
+
+        50% {
+          transform-origin: center;
+          transform: translate(-32vmin, -4.2vmin) rotateY(-80deg) rotateX(35deg);
+        }
+
+        75% {
+          transform-origin: center;
+          transform: translate(-36vmin, 1.1vmin) rotateY(-80deg) rotateX(35deg);
+        }
+      }
+    </style>
+    <title>Home</title>
+  </head>
+  <body>
+    <div class="hero">
+      {% include "navbar.html" %}
+      <div class="content">
+      </div>
+    </div>
+    <!-- Highlights -->
+    <div class="highlight">
+      <div class="left-panel">
+        <h1 style="font-size: 45px; margin-left: 185px; margin-bottom: 15px;">
+          Gardening Tips
+        </h1>
+
+        <div class="garden-ideas">
+      
+          <h2 >Garden Ideas:</h2>
+          <ul>
+            <ul>
+    <li>Soil Health: Regularly test your soil and amend it with organic matter such as compost to improve its structure, fertility, and drainage.</li>
+    <li>Proper Watering: Water your garden early in the morning to minimize evaporation and fungal growth. Use drip irrigation or soaker hoses to deliver water directly to the roots.</li>
+    <li>Mulching: Apply a layer of mulch around plants to retain soil moisture, suppress weeds, and regulate soil temperature.</li>
+    <li>Companion Planting: Plant complementary species together to enhance growth, deter pests, and improve crop yields. For example, plant basil near tomatoes.</li>
+    <li>Pruning: Regularly prune your plants to remove dead or diseased branches, promote healthy growth, and improve air circulation.</li>
+    <li>Rotation and Diversity: Rotate crops each season and diversify plantings to prevent soil depletion and reduce the risk of pest and disease buildup.</li>
+</ul>
+
+          </ul>
+        </div>
+             <!-- animation -->
+    <div class="flower">
+      <div class="f-wrapper">
+        <div class="flower__line"></div>
+        <div class="f">
+          <div class="flower__leaf flower__leaf--1"></div>
+          <div class="flower__leaf flower__leaf--2"></div>
+          <div class="flower__leaf flower__leaf--3"></div>
+          <div class="flower__leaf flower__leaf--4"></div>
+          <div class="flower__leaf flower__leaf--5"></div>
+          <div class="flower__leaf flower__leaf--6"></div>
+          <div class="flower__leaf flower__leaf--7"></div>
+          <div
+            class="flower__leaf flower__leaf--8 flower__fall-down--yellow"
+          ></div>
+        </div>
+      </div>
+      <div class="f-wrapper f-wrapper--2">
+        <div class="flower__line"></div>
+        <div class="f">
+          <div class="flower__leaf flower__leaf--1"></div>
+          <div class="flower__leaf flower__leaf--2"></div>
+          <div class="flower__leaf flower__leaf--3"></div>
+          <div class="flower__leaf flower__leaf--4"></div>
+          <div class="flower__leaf flower__leaf--5"></div>
+          <div class="flower__leaf flower__leaf--6"></div>
+          <div class="flower__leaf flower__leaf--7"></div>
+          <div
+            class="flower__leaf flower__leaf--8 flower__fall-down--pink"
+          ></div>
+        </div>
+      </div>
+      <div class="f-wrapper f-wrapper--3">
+        <div class="flower__line"></div>
+        <div class="f">
+          <div class="flower__leaf flower__leaf--1"></div>
+          <div class="flower__leaf flower__leaf--2"></div>
+          <div class="flower__leaf flower__leaf--3"></div>
+          <div class="flower__leaf flower__leaf--4"></div>
+          <div class="flower__leaf flower__leaf--5"></div>
+          <div class="flower__leaf flower__leaf--6"></div>
+          <div class="flower__leaf flower__leaf--7"></div>
+          <div
+            class="flower__leaf flower__leaf--8 flower__fall-down--purple"
+          ></div>
+        </div>
+      </div>
+      <div class="flower__glass"></div>
+    </div>
+      </div>
+      <div class="right-panel">
+        <img
+          src="{% static 'images/tipsx.jpg' %}"
+          alt=""
+          style="margin-left: 15%; margin-top: 60px;"
+        />
+      </div>
+    </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var highlights = document.querySelectorAll(".highlight");
+
+        function checkScroll() {
+          highlights.forEach(function (highlight) {
+            var position = highlight.getBoundingClientRect().top;
+            var windowHeight = window.innerHeight;
+
+            if (position < windowHeight * 0.75) {
+              highlight.classList.add("animate");
+            }
+          });
+        }
+
+        // Listen for scroll events
+        window.addEventListener("scroll", checkScroll);
+
+        // Initial check on page load
+        checkScroll();
+      });
+    </script>
+ <footer>
+      <h4> &copy; 2024 EWU</h4>
+    </footer>
+    <script src="{% static 'js/script.js'  %}"></script>
+    <!--Start of Tawk.to Script-->
+    <script type="text/javascript">
+      var Tawk_API = Tawk_API || {},
+        Tawk_LoadStart = new Date();
+      (function () {
+        var s1 = document.createElement("script"),
+          s0 = document.getElementsByTagName("script")[0];
+        s1.async = true;
+        s1.src = "https://embed.tawk.to/656f6734ff45ca7d47871e92/1hgtima71";
+        s1.charset = "UTF-8";
+        s1.setAttribute("crossorigin", "*");
+        s0.parentNode.insertBefore(s1, s0);
+      })();
+    </script>
+    <!--End of Tawk.to Script-->
+  </body>
+</html>

@@ -1,0 +1,164 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <title>Hero section</title>
+    <style>
+      .hero {
+        /* Add background image URL */
+        background-image: url("{% static 'images/blog1.jpg' %}"); /* Replace 'path/to/your/image.jpg' with the actual path to your image */
+        background-size: cover; /* Adjust as necessary */
+        height: 100vh;
+        background-position: center; /* Adjust as necessary */
+        /* Other styles for the hero section */
+      }
+
+      .blog-container * {
+        margin: 0;
+        box-sizing: border-box;
+      }
+
+      .blog-container {
+        font-family: sans-serif;
+        color: #333;
+      }
+
+      .cat_container {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+        grid-gap: 5rem;
+        align-items: start;
+        margin: 2.5rem var(--margin-global);
+        max-width: 100%; /* Limit the width of the container */
+        overflow-x: auto; /* Add horizontal scrollbar if needed */
+      }
+
+      .cat_container a {
+        text-decoration: none;
+      }
+
+      .card_cat {
+        width: 80%;
+        padding: 0;
+        background-color: var(--color-white);
+        text-align: left;
+        border-radius: 0px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
+        transition: all 0.5s;
+        /* Fixed height for all cards */
+        height: 45vh;
+        overflow: visible;
+        position: relative;
+      }
+
+      .card_cat:hover {
+        cursor: pointer;
+        transform: scale(1.05);
+        background-color: #e9eff1;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      }
+
+      .plant-img {
+        /* Maintain aspect ratio for images */
+        width: 100%;
+        height: 45%;
+        position: relative;
+      }
+
+      .plant-img img {
+        /* Ensure images cover the entire space */
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+
+      .description {
+        margin: 1rem;
+      }
+
+      .description h2 {
+        font-size: 1.2rem;
+      }
+
+      .description p {
+        text-align: justify;
+        margin-top: 3px;
+      }
+      .blog {
+        position: static;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background-color: #027351;
+        /* Change this to your desired shade of green */
+        color: #fff;
+        /* Set text color to white or another suitable color */
+        padding: 30px;
+        height: 8%;
+        /* Add padding if necessary */
+        text-align: center;
+
+        /* Center the content */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="hero team">
+      {% include "navbar.html" %}
+      <div class="content">
+        <h1 style="font-size: 50px; margin-top: 600px">Read Our Articale</h1>
+      </div>
+    </div>
+    <!-- Posts -->
+    <div class="blog-container">
+      <section class="section__top-categories">
+        <div class="cat_container">
+          {% for post in posts %}
+          <a href="{% url 'post-read' post.id %}">
+            <div class="card_cat">
+              <div class="plant-img">
+                <img src="{{ post.photo.url }}" alt="image" />
+              </div>
+              <div class="description">
+                <h2 style="margin-bottom: 20px">{{ post.title }}</h2>
+                <p>{{ post.post_details|truncatechars:120 }}</p>
+              </div>
+            </div>
+          </a>
+          {% endfor %}
+        </div>
+      </section>
+    </div>
+
+    <!-- Footer -->
+    <div class="blog">
+      <h4>&copy; 2024 EWU</h4>
+    </div>
+
+    {% load static %}
+
+    <script src="{% static 'js/script.js' %}"></script>
+
+    <!--Start of Tawk.to Script-->
+    <script type="text/javascript">
+      var Tawk_API = Tawk_API || {},
+        Tawk_LoadStart = new Date();
+      (function () {
+        var s1 = document.createElement("script"),
+          s0 = document.getElementsByTagName("script")[0];
+        s1.async = true;
+        s1.src = "https://embed.tawk.to/656f6734ff45ca7d47871e92/1hgtima71";
+        s1.charset = "UTF-8";
+        s1.setAttribute("crossorigin", "*");
+        s0.parentNode.insertBefore(s1, s0);
+      })();
+    </script>
+    <!--End of Tawk.to Script-->
+  </body>
+</html>

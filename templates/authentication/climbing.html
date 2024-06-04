@@ -1,0 +1,250 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+
+      /* Hero */
+      .hero {
+        width: 100%;
+        height: 20vh;
+        background-color: #34495e;
+        position: relative;
+        padding: 0 5%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .hero video {
+        width: 100%;
+      }
+
+      nav {
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding: 20px 5%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      nav .logo {
+        max-width: 180px;
+        width: 100%;
+        height: auto;
+      }
+
+      nav ul li {
+        list-style: none;
+        display: inline-block;
+        margin-left: 20px;
+      }
+
+      nav ul li a {
+        text-decoration: none;
+        font-size: 20px;
+        color: #fff;
+      }
+
+      nav ul li a:hover {
+        color: #027351;
+      }
+
+      /* Card Styles */
+      * {
+        margin: 0;
+        padding: 0;
+        font-family: "Roboto", sans-serif;
+      }
+
+      body {
+        background-image: url("{% static 'images/pexel.jpg' %}");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+
+      h1 {
+        font-size: 2.8rem;
+        color: #181616;
+        margin: 40px 0 20px 0;
+        text-align: center;
+      }
+
+      .cards {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+      }
+
+      .card {
+        margin: 30px;
+        position: relative;
+        max-width: 200px;
+        border-radius: 3%;
+        max-height: 250px;
+        box-shadow: 0 40px 60px -6px rgb(88, 83, 83);
+        overflow: hidden; /* Ensure the content does not overflow */
+      }
+
+      .card-title {
+       color: #fcf4f4;
+        display: block;
+        text-align: center;
+        font-size: 1.3rem;
+        padding: 4px 0; /* Adjust padding to remove excess space */
+        position: absolute;
+        top: 0;
+        background-color: hsl(189, 19%, 42%);
+        width: 100%;
+        z-index: 1; /* Ensure the title is above other elements */
+      }
+
+      .card img {
+        width: 100%;
+        height: 100%; /* Ensure the image covers the card fully */
+        object-fit: cover;
+        display: block;
+        position: relative;
+        z-index: 0;
+      }
+
+      .card-desc {
+        display: block;
+        font-size: 1.1rem;
+        position: absolute;
+        height: 0;
+        top: 0;
+        opacity: 0;
+        padding: 18px 8%;
+        background-color: hwb(0 100% 0%);
+        overflow-y: scroll;
+        transition: 0.8s ease;
+        z-index: 2; /* Ensure the description is above other elements when visible */
+      }
+
+      .card:hover .card-desc {
+        opacity: 1;
+        height: 100%;
+      }
+    </style>
+
+    <title>Hero section</title>
+  </head>
+
+  <body>
+    <div class="hero about">{% include "navbar.html" %}</div>
+    <h1>Climbing Flowers</h1>
+    <div class="cards">
+      <div class="card">
+        <h2 class="card-title">Morning Glory</h2>
+        <img src="{% static 'images/MorningGlory.jpg' %}" alt="" />
+        <p class="card-desc">
+          Morning Glory vines produce stunning, trumpet-shaped flowers that open in the morning.
+          They come in various colors, including blue, purple, pink, and white.
+          These vines thrive in full sun and well-drained soil.
+        </p>
+      </div>
+      <div class="card">
+        <h2 class="card-title">Jasmine</h2>
+        <img src="{% static 'images/Jasmine1.jpg' %}" alt="" />
+        <p class="card-desc">
+          Jasmine plants are known for their intensely fragrant, white or yellow flowers.
+          They can be grown as shrubs or climbing vines, adding a touch of elegance to gardens.
+          Jasmine prefers warm climates, full sun to partial shade, and well-drained soil.
+        </p>
+      </div>
+      <div class="card">
+        <h2 class="card-title">Bougainvillea</h2>
+        <img src="{% static 'images/Bougainvillea.jpg' %}" alt="" />
+        <p class="card-desc">
+           Bougainvillea vines are famous for their vibrant bracts, which come in colors like pink, purple, red, and orange.
+           They are hardy plants that can climb trellises or cascade down walls.
+           Bougainvillea thrives in full sun and well-drained soil.
+        </p>
+      </div>
+      <div class="card">
+        <h2 class="card-title">Sweet Pea</h2>
+        <img src="{% static 'images/pea.jpg' %}" alt="" />
+        <p class="card-desc">
+          Sweet Pea plants are cherished for their delicate, fragrant flowers that bloom in spring and early summer.
+         They come in a variety of colors, including pink, purple, and white.
+         These climbing plants prefer cool climates, full sun, and well-drained soil
+        </p>
+      </div>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <h2 class="card-title">Climbing Rose</h2>
+        <img src="{% static 'images/ClimbingRose.jpg' %}" alt="" />
+        <p class="card-desc">
+          Climbing Roses produce beautiful, fragrant blooms that can cover trellises, fences, and walls.
+          They are available in many colors, including red, pink, yellow, and white.
+          Climbing Roses thrive in full sun and well-drained soil.
+        </p>
+      </div>
+      <div class="card">
+        <h2 class="card-title">Honeysuckle</h2>
+        <img src="{% static 'images/Honeysuckle.jpg' %}" alt="" />
+        <p class="card-desc">
+          Honeysuckle vines are known for their sweetly scented, tubular flowers that attract hummingbirds.
+          They come in shades of white, yellow, pink, and red.
+          Honeysuckle prefers full sun to partial shade and well-drained soil.
+        </p>
+      </div>
+      <div class="card">
+        <h2 class="card-title">Wisteria</h2>
+        <img src="{% static 'images/Wisteria.jpg' %}" alt="" />
+        <p class="card-desc">
+          Wisteria vines are admired for their cascading clusters of fragrant, pea-like flowers.
+          They typically bloom in shades of purple, blue, or white.
+          Wisteria thrives in full sun and well-drained soil.
+        </p>
+      </div>
+      <div class="card">
+        <h2 class="card-title">Clematis</h2>
+        <img src="{% static 'images/Clematis.jpg' %}" alt="" />
+        <p class="card-desc">
+          Clematis vines produce large, star-shaped flowers in a wide range of colors.
+          They are versatile climbers that can adorn trellises, fences, and walls.
+          Clematis prefers full sun to partial shade and well-drained soil.
+        </p>
+      </div>
+    </div>
+ <footer>
+      <h4> &copy; 2024 EWU</h4>
+    </footer>
+    <script type="text/javascript">
+      var Tawk_API = Tawk_API || {},
+        Tawk_LoadStart = new Date();
+      (function () {
+        var s1 = document.createElement("script"),
+          s0 = document.getElementsByTagName("script")[0];
+        s1.async = true;
+        s1.src = "https://embed.tawk.to/656f6734ff45ca7d47871e92/1hgtima71";
+        s1.charset = "UTF-8";
+        s1.setAttribute("crossorigin", "*");
+        s0.parentNode.insertBefore(s1, s0);
+      })();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,781 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+  <style>
+    .about {
+      background-image: url("{% static 'images/spage.jpg' %}");
+      background-size: cover;
+      background-position: center;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-buttons {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    .hero-button {
+      background-color: #027351;
+      color: #fff;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+      margin: 0 10px;
+      cursor: pointer;
+      text-align: center;
+      text-decoration: none;
+      font-size: 16px;
+      transition: background-color 0.3s ease;
+    }
+
+    .hero-button:hover {
+      background-color: #37a850;
+      /* Change the color to your desired hover color */
+    }
+
+    .service-content {
+      display: none;
+      max-width: 600px;
+      text-align: center;
+      color: #2b9e4b;
+      background-color: #fffafa;
+      margin-top: 20px;
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    .service-content h3 {
+      font-weight: bold;
+    }
+
+    .back-button {
+      background-color: #027351;
+      color: #fff;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      margin-top: 20px;
+      cursor: pointer;
+      text-align: center;
+      text-decoration: none;
+      font-size: 16px;
+      width: auto;
+      transition: background-color 0.3s ease;
+    }
+
+    .back-button:hover {
+      background-color: #3ebb4f;
+      /* Change the color to your desired hover color */
+    }
+
+    .video-container {
+      position: relative;
+      overflow: hidden;
+      padding-bottom: 56.25%;
+      /* 16:9 aspect ratio */
+      margin-top: 20px;
+    }
+
+    .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    /* explore cart */
+    .garden-card h3 {
+      color: darkgreen;
+      font-size: 24px;
+    }
+
+    .garden-card p {
+      color: #333;
+      font-size: 16px;
+    }
+
+    .center-container {
+      display: flex;
+      flex-wrap: wrap;
+      /* Allow cards to wrap to the next line if there's not enough space */
+      justify-content: space-around;
+      /* Adjust as needed */
+      align-items: center;
+      text-align: center;
+      width: 100%;
+    }
+
+    .garden-card {
+      background-color: #ffffff;
+      border: 1px solid #ddd;
+      border-radius: 15px;
+      padding: 20px;
+      margin: 30px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      width: 18%;
+      /* 25% width for four cards in a row with margin between them */
+      text-align: center;
+      height: 48vh;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    /* Set a media query to adjust the width for smaller screens if needed */
+    @media screen and (max-width: 768px) {
+      .garden-card {
+        width: calc(50% - 20px);
+        /* 50% width for two cards in a row on smaller screens */
+      }
+    }
+
+    .row {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .garden-types {
+      width: 100%;
+    }
+
+    .garden-card:hover {
+      background-color: #f0f0f0;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      transform: scale(1.05);
+    }
+
+    /* plant-types card */
+    .plant-card h3 {
+      color: darkgreen;
+      font-size: 24px;
+    }
+
+    .plant-card p {
+      color: #333;
+      font-size: 16px;
+    }
+
+    .center-container {
+      display: flex;
+      flex-wrap: wrap;
+      /* Allow cards to wrap to the next line if there's not enough space */
+      justify-content: space-around;
+      /* Adjust as needed */
+      align-items: center;
+      text-align: center;
+      width: 100%;
+      margin-bottom: 20px;
+    }
+
+    .plant-card {
+      background-color: #ffffff;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 20px;
+      margin: 30px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      width: 15%;
+      /* 25% width for four cards in a row with margin between them */
+      text-align: center;
+      height: 45vh;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .plant-img {
+      height: 50%;
+      /* Adjust the height as needed */
+      overflow: hidden;
+      border-radius: 8px 8px 0 0;
+      margin-bottom: 20px;
+      /* Rounded corners at the top */
+    }
+
+    .plant-card img {
+      width: 100%;
+      /* Make the image fill the container */
+      height: 100%;
+      /* Make the image fill the container */
+      object-fit: cover;
+    }
+
+    /* Set a media query to adjust the width for smaller screens if needed */
+    @media screen and (max-width: 768px) {
+      .plant-card {
+        width: calc(50% - 20px);
+        /* 50% width for two cards in a row on smaller screens */
+      }
+    }
+
+    .row {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .plant-types {
+      width: 100%;
+    }
+
+    .plant-card:hover {
+      transform: scale(1.05);
+      background-color: #f0f0f0;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    /* advices */
+
+    .advices {
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+}
+
+.card {
+  width: 400px;
+  height: 200px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  background-color: #f0f0f0;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.card img {
+  width: 100px;
+  height: 100%;
+  margin-top: 0;
+}
+
+.card .content {
+  padding: 10px;
+}
+
+.card h2 {
+  margin-top: 0;
+  color: #333;
+}
+
+.card p {
+  color: #666;
+}
+   /*  Add this style specifically for the round button with plant icon */
+      .buttons-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 25vh;
+        margin-bottom: 100px;
+      }
+
+      .round-button {
+        display: inline-block;
+        /* Set to display inline-block */
+        margin-right: 100px;
+        /* Adjust margin between buttons if needed */
+        margin: 50px;
+      }
+
+      .round-button-link {
+        display: inline-block;
+        background-color: #365c72;
+        /* Change the background color as desired */
+        color: #fff;
+        width: 100px;
+        /* Adjust the width as needed */
+        height: 100px;
+        /* Adjust the height to match the width for a circle */
+        line-height: 80px;
+        /* Vertically center text within the circle */
+        border-radius: 80%;
+        /* Set to 50% for a circular shape */
+        text-decoration: none;
+        font-size: 18px;
+        transition: background-color 0.3s ease;
+        position: relative;
+        /* Position relative for absolute positioning of the icon */
+      }
+
+      /* Style for the plant icon */
+      .ML-icon {
+        position: absolute;
+        top: 50%;
+        left: 55%;
+        transform: translate(-50%, -50%);
+        width: 70px;
+        /* Adjust the icon size as needed */
+        height: 70px;
+       background-image: url("{% static 'images/plant1.png' %}");
+        /* Replace with the path to your icon */
+        background-size: cover;
+        transition: transform 0.3s ease;
+        /* Add transition for smooth effect */
+      }
+
+      /* Hover effect for the plant icon */
+      .round-button-link:hover .ML-icon {
+        transform: scale(2);
+        /* Adjust the scale factor for the hover effect */
+      }
+
+      .data-icon {
+        position: absolute;
+        top: 45%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 65px;
+        /* Adjust the icon size as needed */
+        height: 70px;
+        /* ... existing styles ... */
+        background-image: url("{% static 'images/care.png' %}");
+        background-size: cover;
+        transition: transform 0.3s ease;
+        /* Add transition for smooth effect */
+      }
+
+      /* Hover effect for the flower icon */
+      .round-button-link:hover .data-icon {
+        transform: scale(2);
+        /* Adjust the scale factor for the hover effect */
+      }
+
+      /* Style for the sun icon */
+      .python-icon {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 70px;
+        /* Adjust the icon size as needed */
+        height: 70px;
+        /* ... existing styles ... */
+       background-image: url("{% static 'images/idea.png' %}");
+        background-size: cover;
+        transition: transform 0.3s ease;
+        /* Add transition for smooth effect */
+      }
+
+      /* Hover effect for the sun icon */
+      .round-button-link:hover .python-icon {
+        transform: scale(2);
+        /* Adjust the scale factor for the hover effect */
+      }
+
+      .button-title {
+        display: block;
+        text-align: center;
+        margin-top: 10px;
+        /* Adjust the margin as needed */
+        font-size: 16px;
+      }
+
+  </style>
+  <title>Services</title>
+  <script src="https://www.youtube.com/iframe_api"></script>
+</head>
+
+<body>
+  <div class="hero about">
+    {% include "navbar.html" %}
+    <h2 style="
+          text-align: center;
+          color: white;
+          font-size: 70px;
+          font-weight: bold;
+        ">
+      Explore Your Garden
+    </h2>
+    <div class="hero-buttons">
+      <button class="hero-button" onclick="toggleService('plant-health')">
+        Plant Health
+      </button>
+      <button class="hero-button" onclick="toggleService('auto-irrigation')">
+        Watering
+      </button>
+    </div>
+    <div id="plant-health-content" class="service-content">
+      <h3>Plant Health Service</h3>
+      <p>
+        Our system takes care of plant nutrients, ensuring optimal health for
+        your plants.
+      </p>
+      <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/YsugL1deYJw?rel=0" frameborder="0" allowfullscreen></iframe>
+      </div>
+      <button class="back-button" onclick="goBack()">Back</button>
+    </div>
+    <div id="auto-irrigation-content" class="service-content">
+      <h3>Auto Irrigation Service</h3>
+      <p>
+        Watering is crucial for rooftop gardens. Our system provides efficient
+        auto-irrigation for your plants.
+      </p>
+      <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/iwkE_HWU-6M?rel=0" frameborder="0" allowfullscreen></iframe>
+      </div>
+      <button class="back-button" onclick="goBack()">Back</button>
+    </div>
+  </div>
+  <!-- Inside the "garden-types" section -->
+  <div class="garden-types">
+    <div class="center-container">
+      <h2 style="
+            color: darkgreen;
+            font-size: 30px;
+            font-weight: bold;
+            margin-top: 100px;
+            margin-bottom: 30px;
+          ">
+        Explore Garden Types
+      </h2>
+    </div>
+    <!-- First Row -->
+    <div class="row">
+      <!-- Card: Modern Garden -->
+      <div class="garden-card">
+        <a href="{% url 'modern' %}" style="text-decoration: none">
+          <h3>Modern Garden</h3>
+          <img src="{% static 'images/modern.jpg' %}" alt="Modern Garden Image" />
+          <p>
+            Discover the beauty of modern garden designs that blend innovation
+            and nature.
+          </p>
+          <!-- Add more details or images as needed -->
+        </a>
+      </div>
+      <!-- Card: City Garden -->
+      <div class="garden-card">
+        <a href="{% url 'city' %}" style="text-decoration: none">
+          <h3>City Garden</h3>
+          <img src="{% static 'images/city.jpg' %}" alt="City Garden Image" />
+          <p>
+            Explore creative urban gardening solutions that thrive in city
+            environments.
+          </p>
+        </a>
+        <!-- Add more details or images as needed -->
+      </div>
+      <!-- Card: Traditional Garden -->
+      <div class="garden-card">
+        <a href="{% url 'trad' %}" style="text-decoration: none">
+          <h3>Traditional Garden</h3>
+          <img src="{% static 'images/trad.jpg' %}" alt="Traditional Garden Image" />
+          <p>
+            Experience the charm of timeless garden designs inspired by
+            tradition and heritage.
+          </p>
+        </a>
+        <!-- Add more details or images as needed -->
+      </div>
+      <!-- Second Row -->
+      <div class="row">
+        <!-- Card: Fifth Garden Type -->
+        <div class="garden-card">
+          <a href="{% url 'japan' %}" style="text-decoration: none">
+            <h3>Japanese Garden</h3>
+            <img src="{% static 'images/japanese.jpg' %}" alt="Fifth Garden Image" />
+            <p>
+              Japanese gardens aim to replicate the natural landscape in a
+              controlled and stylized manner.
+            </p>
+          </a>
+          <!-- Add more details or images as needed -->
+        </div>
+        <!-- Card: Sixth Garden Type -->
+        <div class="garden-card">
+          <a href="{% url 'formal' %}" style="text-decoration: none">
+            <h3>Formal Garden</h3>
+            <img src="{% static 'images/formal.jpg' %}" alt="Sixth Garden Image" />
+            <p>
+              Formal gardens are known for their symmetrical and geometric
+              designs.
+            </p>
+          </a>
+          <!-- Add more details or images as needed -->
+        </div>
+        <!-- Card: Seventh Garden Type -->
+        <div class="garden-card">
+          <a href="{% url 'rock' %}" style="text-decoration: none">
+            <h3>Rock Garden</h3>
+            <img src="{% static 'images/rock.jpg' %}" alt="Seventh Garden Image" />
+            <p>
+              Rock gardens prominently feature rocks and stones, often arranged to
+              mimic natural landscapes.
+            </p>
+          </a>
+          <!-- Add more details or images as needed -->
+        </div>
+      </div>
+    </div>
+    <!-- flower -->
+    <div class="your-garden-types">
+      <div class="plant-types">
+        <div class="center-container">
+          <h2 style="
+              color: darkgreen;
+              font-size: 30px;
+              font-weight: bold;
+              margin-top: 100px;
+              margin-bottom: 30px;
+            ">
+            Plant Types
+          </h2>
+        </div>
+        <div class="row">
+          <!-- Card: flower -->
+          <div class="plant-card">
+            <a href="{% url 'flower' %}" style="text-decoration: none">
+              <div class="plant-img">
+                <img src="{% static 'images/flower.jpg' %}" alt="Flower" />
+              </div>
+              <h3>Flower</h3>
+              <p>The delicate petals of a blooming flower gracefully unfold.</p>
+              <!-- Add more details or images as needed -->
+            </a>
+          </div>
+          <!-- Card: vegetable -->
+          <div class="plant-card">
+            <a href="{% url 'vegetable' %}" style="text-decoration: none">
+              <div class="plant-img">
+                <img src="{% static 'images/veg.jpg' %}" alt="vegetable" />
+              </div>
+              <h3>Vegetable</h3>
+              <p>
+                Vegetables are nutrient-rich plant-based foods that contribute
+                support overall health.
+              </p>
+              <!-- Add more details or images as needed -->
+            </a>
+          </div>
+
+          <!-- Card: herb -->
+          <div class="plant-card">
+            <a href="{% url 'herb' %}" style="text-decoration: none">
+              <div class="plant-img">
+                <img src="{% static 'images/herb.jpg' %}" alt="herb" />
+              </div>
+              <h3>Herb</h3>
+              <p>
+                Herbs are aromatic plants used for culinary, medicinal purposes.
+              </p>
+              <!-- Add more details or images as needed -->
+            </a>
+          </div>
+          <!-- Second Row -->
+          <div class="row">
+            <!-- Card: shurb -->
+            <div class="plant-card">
+              <a href="{% url 'shurb' %}" style="text-decoration: none">
+                <div class="plant-img">
+                  <img src="{% static 'images/shurb.jpg' %}" alt="shrub" />
+                </div>
+                <h3>Shrub</h3>
+                <p>
+                  A shrub is a small to medium-sized woody plant characterized by
+                  multiple stems.
+                </p>
+                <!-- Add more details or images as needed -->
+              </a>
+            </div>
+            <!-- Card: fruit -->
+            <div class="plant-card">
+              <a href="{% url 'fruit' %}" style="text-decoration: none">
+                <div class="plant-img">
+                  <img src="{% static 'images/fru.jpg' %}" alt="Fruit" />
+                </div>
+                <h3>Fruits</h3>
+                <p>
+                  Fruits are rich in essential vitamins, minerals, fiber, and
+                  antioxidants.
+                </p>
+                <!-- Add more details or images as needed -->
+              </a>
+            </div>
+            <div class="plant-card">
+              <a href="{% url 'climbing' %}" style="text-decoration: none">
+                <div class="plant-img">
+                  <img src="{% static 'images/clim.jpg' %}" alt="Climbing" />
+                </div>
+                <h3>Climbing</h3>
+                <p>
+                  Climbing plants ascend surfaces using twining stems, adding
+                  decorative greenery to gardens.
+                </p>
+                <!-- Add more details or images as needed -->
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- advices-->
+<div class="garden-advices">
+  <h1 style="
+      color: darkgreen;
+      font-size: 30px;
+      font-weight: bold;
+      margin-top: 80px;
+      margin-bottom: 30px;
+      text-align: center;
+    ">
+    Garden Advices
+  </h1>
+  <p style="
+      text-align: center;
+      color: #020314;
+      font-size: 18px;
+      margin-bottom: 20px;
+    ">
+    There are tons of gardening tricks and tips that make gardening lots of fun! You'd be surprised at how a few simple household ingredients can transform your garden.
+  </p>
+</div>
+
+    <!-- Button 1 with title "Find Plants" -->
+    <div class="buttons-container">
+      <!-- Button 1 with title "Find Plants" -->
+      <div class="round-button">
+        <a href="{% url 'tips' %}" class="round-button-link">
+          <i class="ML-icon"></i>
+        </a>
+        <span class="button-title" style="color: green; font-weight: bold;font-size: 20px;"
+          >How Select Plant </span
+        >
+      </div>
+
+      <!-- Button 2 with title "Get Design Ideas" -->
+      <div class="round-button">
+        <a href="{% url 'disease' %}" class="round-button-link">
+          <i class="data-icon"></i>
+        </a>
+        <span class="button-title" style="color: green; font-weight: bold;font-size: 20px;"
+          > Plant Care
+        </span
+        >
+      </div>
+
+      <!-- Button 3 with title "Plant Care" -->
+      <div class="round-button">
+        <a href="{% url 'care' %}" class="round-button-link">
+          <i class="python-icon"></i>
+        </a>
+        <span class="button-title" style="color: green; font-weight: bold;font-size: 20px;"
+          >Garden Tips
+        </span>
+      </div>
+    </div>
+ 
+      <footer>
+        <h4>&copy; 2024 EWU</h4>
+      </footer>
+      <script src="{% static 'js/script.js' %}"></script>
+      <script>
+        function onYouTubeIframeAPIReady() {
+          // This function is called automatically when the YouTube API is ready
+          // You can use it to initialize your YouTube players
+        }
+
+        function toggleService(serviceType) {
+          const plantHealthContent = document.getElementById(
+            "plant-health-content"
+          );
+          const autoIrrigationContent = document.getElementById(
+            "auto-irrigation-content"
+          );
+
+          // Hide previous content
+          plantHealthContent.style.display = "none";
+          autoIrrigationContent.style.display = "none";
+
+          if (serviceType === "plant-health") {
+            // Show Plant Health content
+            plantHealthContent.style.display = "block";
+
+            // Initialize YouTube player for Plant Health
+            createYouTubePlayer("plant-health-video", "YsugL1deYJw");
+          } else if (serviceType === "auto-irrigation") {
+            // Show Auto Irrigation content
+            autoIrrigationContent.style.display = "block";
+
+            // Stop YouTube player for Plant Health when switching to another service
+            stopYouTubePlayer("plant-health-video");
+          }
+        }
+
+        function createYouTubePlayer(containerId, videoId) {
+          // This function creates a YouTube player inside the specified container
+          new YT.Player(containerId, {
+            height: "360",
+            width: "640",
+            videoId: videoId,
+            events: {
+              onReady: onPlayerReady,
+              onStateChange: onPlayerStateChange,
+            },
+          });
+        }
+
+        function stopYouTubePlayer(containerId) {
+          // This function stops the YouTube player inside the specified container
+          const player = document.getElementById(containerId);
+          if (player) {
+            player.contentWindow.postMessage(
+              '{"event":"command","func":"stopVideo","args":""}',
+              "*"
+            );
+          }
+        }
+
+        function onPlayerReady(event) {
+          // You can do something when the player is ready
+        }
+
+        function onPlayerStateChange(event) {
+          // You can do something when the player state changes
+        }
+
+        function goBack() {
+          const plantHealthContent = document.getElementById(
+            "plant-health-content"
+          );
+          const autoIrrigationContent = document.getElementById(
+            "auto-irrigation-content"
+          );
+
+          // Hide content and stop YouTube player when going back
+          plantHealthContent.style.display = "none";
+          autoIrrigationContent.style.display = "none";
+          stopYouTubePlayer("plant-health-video");
+        }
+      </script>
+      <!--Start of Tawk.to Script-->
+      <script type="text/javascript">
+        var Tawk_API = Tawk_API || {},
+          Tawk_LoadStart = new Date();
+        (function () {
+          var s1 = document.createElement("script"),
+            s0 = document.getElementsByTagName("script")[0];
+          s1.async = true;
+          s1.src = "https://embed.tawk.to/656f6734ff45ca7d47871e92/1hgtima71";
+          s1.charset = "UTF-8";
+          s1.setAttribute("crossorigin", "*");
+          s0.parentNode.insertBefore(s1, s0);
+        })();
+      </script>
+      <!--End of Tawk.to Script-->
+</body>
+
+</html>

@@ -1,0 +1,254 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+
+      /* Hero */
+      .hero {
+        width: 100%;
+        height: 20vh;
+        background-color: #34495e;
+        position: relative;
+        padding: 0 5%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .hero video {
+        width: 100%;
+      }
+
+      nav {
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding: 20px 5%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      nav .logo {
+        max-width: 180px;
+        width: 100%;
+        height: auto;
+      }
+
+      nav ul li {
+        list-style: none;
+        display: inline-block;
+        margin-left: 20px;
+      }
+
+      nav ul li a {
+        text-decoration: none;
+        font-size: 20px;
+        color: #fff;
+      }
+
+      nav ul li a:hover {
+        color: #027351;
+      }
+
+      /* Card Styles */
+      * {
+        margin: 0;
+        padding: 0;
+        font-family: "Roboto", sans-serif;
+      }
+
+      body {
+        background-image: url("{% static 'images/pexel.jpg' %}");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+
+      h1 {
+        font-size: 2.8rem;
+        color: #181616;
+        margin: 40px 0 20px 0;
+        text-align: center;
+      }
+
+      .cards {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+      }
+
+      .card {
+        margin: 30px;
+        position: relative;
+        max-width: 200px;
+        border-radius: 3%;
+        max-height: 250px;
+        box-shadow: 0 40px 60px -6px rgb(88, 83, 83);
+        overflow: hidden; /* Ensure the content does not overflow */
+      }
+
+      .card-title {
+       color: #fcf4f4;
+        display: block;
+        text-align: center;
+        font-size: 1.3rem;
+        padding: 4px 0; /* Adjust padding to remove excess space */
+        position: absolute;
+        top: 0;
+        background-color: hsl(189, 19%, 42%);
+        width: 100%;
+        z-index: 1; /* Ensure the title is above other elements */
+      }
+
+      .card img {
+        width: 100%;
+        height: 100%; /* Ensure the image covers the card fully */
+        object-fit: cover;
+        display: block;
+        position: relative;
+        z-index: 0;
+      }
+
+      .card-desc {
+        display: block;
+        font-size: 1.1rem;
+        position: absolute;
+        height: 0;
+        top: 0;
+        opacity: 0;
+        padding: 18px 8%;
+        background-color: hwb(0 100% 0%);
+        overflow-y: scroll;
+        transition: 0.8s ease;
+        z-index: 2; /* Ensure the description is above other elements when visible */
+      }
+
+      .card:hover .card-desc {
+        opacity: 1;
+        height: 100%;
+      }
+    </style>
+
+    <title>Hero section</title>
+  </head>
+
+  <body>
+    <div class="hero about">{% include "navbar.html" %}</div>
+    <h1>Beauty of Flowers</h1>
+    <div class="cards">
+      <div class="card">
+        <h2 class="card-title">Rose</h2>
+        <img src="{% static 'images/rose.jpg' %}" alt="" />
+        <p class="card-desc">
+          The rose, often dubbed the "queen of flowers," is renowned for its 
+          exquisite beauty and fragrance. It symbolizes love and passion, 
+          making it a popular choice for gifts and decorations. With a rich history in art, literature, 
+          and culture, the rose continues to be an enduring emblem of elegance and emotion.
+        </p>
+      </div>
+      <div class="card">
+        <h2 class="card-title">Hibicus</h2>
+        <img src="{% static 'images/hibicus.jpg' %}" alt="" />
+        <p class="card-desc">
+          The hibiscus is a vibrant and tropical flower known for its large, colorful blossoms and its role in various cultures worldwide.
+           Often associated with beauty and delicate charm, it is commonly used in herbal teas and traditional medicines. 
+          Its striking appearance makes it a popular choice for gardens and floral arrangements, symbolizing exotic allure and natural beauty.
+        </p>
+      </div>
+      <div class="card">
+        <h2 class="card-title">MarriGold</h2>
+        <img src="{% static 'images/marrigold.jpg' %}" alt="" />
+        <p class="card-desc">
+          Marigolds are bright, hardy flowers known for their vibrant orange and yellow hues, originating from 
+          Mexico and Central America. They are often used in gardens for their pest-repellent properties and are significant in cultural 
+          festivals like Día de los Muertos. Marigolds are easy to grow and bloom profusely, adding cheerful color to landscapes.
+        </p>
+      </div>
+      <div class="card">
+        <h2 class="card-title">Sunflower</h2>
+        <img src="{% static 'images/sunflower.jpg' %}" alt="" />
+        <p class="card-desc">
+          Sunflowers, scientifically known as Helianthus annuus, are iconic for their large, vibrant 
+          yellow petals and brown center disks. These striking flowers are heliotropic, meaning they track the 
+          movement of the sun across the sky, facing east in the morning and west in the evening. Symbolizing adoration,
+           loyalty, and longevity, sunflowers are not only visually 
+          stunning but also hold cultural and symbolic significance in various societies around the world.
+        </p>
+      </div>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <h2 class="card-title">Tulip</h2>
+        <img src="{% static 'images/tulip.jpg' %}" alt="" />
+        <p class="card-desc">
+          Tulips are vibrant, cup-shaped flowers originating from Central Asia, widely associated with Dutch horticulture.
+           Blooming in spring, they symbolize love and rebirth. 
+          Available in numerous varieties and colors, tulips are a popular choice for gardens and floral displays.
+        </p>
+      </div>
+      <div class="card">
+        <h2 class="card-title">Daylily</h2>
+        <img src="{% static 'images/daylily.jpg' %}" alt="" />
+        <p class="card-desc">
+          Daylilies are hardy, perennial plants known for their vibrant, trumpet-shaped flowers that typically 
+          bloom for just one day. Originating from Asia, they are popular in gardens due to their minimal maintenance needs
+          and ability to thrive in various climates. With thousands of cultivars,
+          daylilies offer a wide range of colors and patterns, making them a versatile choice for landscaping.
+        </p>
+      </div>
+      <div class="card">
+        <h2 class="card-title">Jasmine</h2>
+        <img src="{% static 'images/jasmine.jpg' %}" alt="" />
+        <p class="card-desc">
+          Jasmine is a fragrant flowering plant native to tropical and subtropical regions, prized for 
+          its sweet-scented white or yellow blooms. Often used in perfumes and teas, jasmine flowers symbolize love and beauty.
+          This versatile plant can grow as a shrub or vine, making it popular in gardens and for decorative purposes.
+        </p>
+      </div>
+      <div class="card">
+        <h2 class="card-title">Daliha</h2>
+        <img src="{% static 'images/daliha.jpg' %}" alt="" />
+        <p class="card-desc">
+          Dahlia is a genus of beautiful flowering plants native to Mexico, Central America, and Colombia. 
+          These stunning flowers come in a variety of shapes, sizes, and colors, making them popular choices for gardens and floral arrangements worldwide. 
+          With their intricate petal patterns and vibrant hues, dahlias add a touch of elegance and charm to any landscape or bouquet.
+        </p>
+      </div>
+    </div>
+ <footer>
+      <h4> &copy; 2024 EWU</h4>
+    </footer>
+    <script type="text/javascript">
+      var Tawk_API = Tawk_API || {},
+        Tawk_LoadStart = new Date();
+      (function () {
+        var s1 = document.createElement("script"),
+          s0 = document.getElementsByTagName("script")[0];
+        s1.async = true;
+        s1.src = "https://embed.tawk.to/656f6734ff45ca7d47871e92/1hgtima71";
+        s1.charset = "UTF-8";
+        s1.setAttribute("crossorigin", "*");
+        s0.parentNode.insertBefore(s1, s0);
+      })();
+    </script>
+  </body>
+</html>

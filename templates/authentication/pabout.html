@@ -1,0 +1,107 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    <style>
+        .about{
+            background-image: url("{% static 'images/img11.jpg' %}");
+        }
+    </style>
+
+    <title>Hero section</title>
+</head>
+
+<body>
+    <div class="hero about">
+        {% include "navbar.html" %}
+        <div class="content">
+            <h1 style="font-size: 90px;">About Us</h1>
+            <h2  style="font-size: 25px;text">We are a diverse, ambitious team excited about what we do. We aim to build a culture, focusing on people
+                over process.
+                We believe in a Dream Team where great and good people can work together to bring about a revolutionary
+                change that
+                benefits mankind.</h2>
+        </div>
+    </div>
+
+    <!-- Who We Are -->
+    <div class="who-we-are">
+        <div class="left-panel">
+            <h1 style="font-size: 60px;">We Are</h1>
+            <h2 style="text-align: justify;">A passionate team who are passionate about what we do. We are determined to help others. We want to make
+                rooftop gardening easy for everyone.</h2>
+        </div>
+
+        <div class="right-panel">
+            <div class="text-block">
+                <h1>Trust and Integrity</h1>
+                <h2 style="text-align: justify;">We want to build an environment in which mutual trust can develop and that allows us to discuss matters openly. It gives
+                us the confidence to admit when we are wrong and the courage to change. Integrity means that we are truthful and honest.
+                When faced with difficult decisions and hard choices, we do the right thing, even in the face of adversity.</h2>
+            </div>
+            <div class="text-block">
+                <h1>Judgment</h1>
+                <h2 style="text-align: justify;">We want people to use their best judgment. It is the ability to combine personal qualities with relevant knowledge and
+                experience to form opinions and make quick decisions. We admire people who can make wise decisions despite ambiguity and
+                can identify root causes, and not just emphasize on treating symptoms. While intuition is relevant, intuition validated
+                by data is powerful.</h2>
+            </div>
+            <div class="text-block">
+                <h1>Curiousness</h1>
+                <h2 style="text-align: justify;">We see change as an opportunity to improve. We frequently push ourselves out of our comfort zone. Our learning mindset
+                ensures we reflect and learn from our successes and failures. We want to think that it is always “day 1” and do not get
+                complacent. Want to learn and unlearn rapidly and eagerly and when required to operate outside of our comfort zone.</h2>
+            </div>
+            
+        </div>
+    </div>
+     
+
+<div class ="passionate-about-gardening">
+   <div class="passionate-about-gardening" style="margin: 70px; margin-top: 70px;">
+    <h1 style="margin-right: 350px; margin-left: 350px; margin-top: 40px; font-size: 30px;">Are you passionate about gardening too? Then you have found your home.</h1>
+    <p style="margin-right: 350px; margin-left: 350px; margin-bottom: 20px; font-size: 20px; text-align: justify;">Here at Gardening Know How, whether you are an 
+        apartment dweller with an affection for houseplants, a novice gardener putting in your first edible garden, 
+        or a master gardener looking to learn how to transform your harvest into delicious meals,
+         everyone is welcome here.
+    </p>
+
+
+    <h2 style="margin-right: 350px; margin-left: 350px; margin-top: 40px; font-size: 30px;">Gardens for Good.</h2>
+    <p style="margin-right: 350px; margin-left: 350px; font-size: 20px;text-align: justify;"> "Gardens for Good" is a concept that emphasizes the positive impact and social
+         benefits that gardens can bring to individuals, communities, and the environment. It goes beyond the traditional view of gardens
+          as merely places for plants and flowers and extends to how gardens can be a force for good, contributing 
+          to various aspects of well-being and community development.
+    </p>
+
+        
+    </div>  
+</div>
+
+
+
+    <!-- Footer -->
+    <footer>
+        <h4>&copy; 2024 EWU</h4>
+    </footer>
+
+    <script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+      var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+      s1.async=true;
+      s1.src='https://embed.tawk.to/656f6734ff45ca7d47871e92/1hgtima71';
+      s1.charset='UTF-8';
+      s1.setAttribute('crossorigin','*');
+      s0.parentNode.insertBefore(s1,s0);
+    })();
+  </script>
+
+</body>
+
+</html>

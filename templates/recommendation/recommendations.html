@@ -1,0 +1,172 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <title>Recommendations</title>
+
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        margin: 0;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .hero {
+        /* Add background image URL */
+        background-image: url("{% static 'images/rcm.jpg' %}"); 
+        background-size: cover; 
+        background-position: center; 
+       
+      }
+
+      .hero {
+        flex: 1;
+      }
+
+      .content {
+        margin-top: 80px;
+        text-align: center;
+      }
+
+      .recommendations-container {
+        text-align: center;
+        margin-top: 20px;
+      }
+
+      .recommendation-message {
+        background-color: #e6f7e5; /* Light green background */
+        border: 1px solid #c3e6cb; /* Border color */
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        margin-bottom: 20px;
+        color: #155724; /* Dark green text color */
+        font-weight: bold; /* Bold text */
+      }
+      .cat_container {
+        flex-wrap: wrap;
+        justify-content: space-around;
+        padding: 0px; /* 
+      }
+
+      /* Style for each card */
+      .card_cat {
+        width: 300px; 
+        margin-bottom: 10px; 
+        border-radius: 8px; 
+        overflow: hidden; 
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+      }
+
+      /* Style for the plant image */
+      .plant-img img {
+        width: 100%; 
+        height: 200px; 
+        object-fit: cover; 
+      }
+
+      /* Style for the description */
+      .description {
+        padding: 10px; 
+      }
+
+      /* Style for the plant name */
+      .description h2 {
+        margin-bottom: 10px;
+      }
+
+      /* Style for the plant description */
+      .description p {
+        margin: 0; 
+      }
+      .read-more {
+        display: block;
+        text-align: center;
+        margin-top: 10px;
+        color: #007bff;
+        text-decoration: none;
+      }
+
+      .read-more:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="hero team">{% include "navbar.html" %}</div>
+
+    {% if recommendations %}
+    <div class="blog-container">
+      <section class="section__top-categories">
+        <div class="cat_container">
+          {% for plant in recommendations %}
+          <a href="{% url 'plant-details' plant.id %}">
+            <div class="card_cat">
+              <div class="plant-img">
+                <img src="{{ plant.plant_image.url }}" alt="image" />
+              </div>
+              <div class="description">
+                <h2 style="margin-bottom: 20px">{{ plant.plant_name }}</h2>
+                <p>{{ plant.plant_description|truncatechars:100 }}</p>
+                <a href="{% url 'plant-details' plant.id %}" class="read-more"
+                  >Read More</a
+                >
+              </div>
+            </div>
+          </a>
+          {% endfor %}
+        </div>
+      </section>
+    </div>
+
+    {% else %}
+    <div class="recommendations-container" style="margin-top: 10vh">
+      <div class="recommendation-message">
+        <p class="no-recommendations">
+          No recommendations found for the given criteria.
+        </p>
+      </div>
+    </div>
+
+    {% endif %}
+
+    <!-- Footer -->
+    <footer>
+      <h4>&copy; 2023 EWU</h4>
+    </footer>
+
+    <!-- JavaScript for Back Button -->
+    <script>
+      function goBack() {
+        window.history.back();
+      }
+    </script>
+
+    <!--Start of Tawk.to Script-->
+    <script type="text/javascript">
+      var Tawk_API = Tawk_API || {},
+        Tawk_LoadStart = new Date();
+      (function () {
+        var s1 = document.createElement("script"),
+          s0 = document.getElementsByTagName("script")[0];
+        s1.async = true;
+        s1.src = "https://embed.tawk.to/656f6734ff45ca7d47871e92/1hgtima71";
+        s1.charset = "UTF-8";
+        s1.setAttribute("crossorigin", "*");
+        s0.parentNode.insertBefore(s1, s0);
+      })();
+    </script>
+    <!--End of Tawk.to Script-->
+
+    <script src="{% static 'js/script.js' %}"></script>
+  </body>
+</html>

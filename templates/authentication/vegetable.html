@@ -1,0 +1,247 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+
+      /* Hero */
+      .hero {
+        width: 100%;
+        height: 20vh;
+        background-color: #34495e;
+        position: relative;
+        padding: 0 5%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .hero video {
+        width: 100%;
+      }
+
+      nav {
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding: 20px 5%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      nav .logo {
+        max-width: 180px;
+        width: 100%;
+        height: auto;
+      }
+
+      nav ul li {
+        list-style: none;
+        display: inline-block;
+        margin-left: 20px;
+      }
+
+      nav ul li a {
+        text-decoration: none;
+        font-size: 20px;
+        color: #fff;
+      }
+
+      nav ul li a:hover {
+        color: #027351;
+      }
+
+      /* Card Styles */
+      * {
+        margin: 0;
+        padding: 0;
+        font-family: "Roboto", sans-serif;
+      }
+
+      body {
+        background-image: url("{% static 'images/pexel.jpg' %}");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+
+      h1 {
+        font-size: 2.8rem;
+        color: #181616;
+        margin: 40px 0 20px 0;
+        text-align: center;
+      }
+
+      .cards {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+      }
+
+      .card {
+        margin: 30px;
+        position: relative;
+        max-width: 200px;
+        border-radius: 3%;
+        max-height: 250px;
+        box-shadow: 0 40px 60px -6px rgb(88, 83, 83);
+        overflow: hidden; /* Ensure the content does not overflow */
+      }
+
+      .card-title {
+       color: #fcf4f4;
+        display: block;
+        text-align: center;
+        font-size: 1.3rem;
+        padding: 4px 0; /* Adjust padding to remove excess space */
+        position: absolute;
+        top: 0;
+        background-color: hsl(189, 19%, 42%);
+        width: 100%;
+        z-index: 1; /* Ensure the title is above other elements */
+      }
+
+      .card img {
+        width: 100%;
+        height: 100%; /* Ensure the image covers the card fully */
+        object-fit: cover;
+        display: block;
+        position: relative;
+        z-index: 0;
+      }
+
+      .card-desc {
+        display: block;
+        font-size: 1.1rem;
+        position: absolute;
+        height: 0;
+        top: 0;
+        opacity: 0;
+        padding: 18px 8%;
+        background-color: hwb(0 100% 0%);
+        overflow-y: scroll;
+        transition: 0.8s ease;
+        z-index: 2; /* Ensure the description is above other elements when visible */
+      }
+
+      .card:hover .card-desc {
+        opacity: 1;
+        height: 100%;
+      }
+    </style>
+
+    <title>Hero section</title>
+  </head>
+
+  <body>
+    <div class="hero about">{% include "navbar.html" %}</div>
+    <h1>Grow Fresh vegetables</h1>
+    <div class="cards">
+      <div class="card">
+        <h2 class="card-title">Tomato</h2>
+        <img src="{% static 'images/tomato.jpg' %}" alt="" />
+        <p class="card-desc">
+          Tomatoes are juicy, nutrient-rich fruits often used as vegetables in culinary dishes. 
+          They come in various colors, from vibrant reds to yellow and green, and are known for their tangy flavor and versatility in cooking.
+        </p>
+      </div>
+      <div class="card">
+        <h2 class="card-title">Okra</h2>
+        <img src="{% static 'images/okra.jpg' %}" alt="" />
+        <p class="card-desc">
+          Okra, also known as lady's fingers, is a flowering plant prized for its edible green seed pods. Commonly used in cuisines around the world,
+           okra is valued for its distinct flavor, slimy texture (when cooked), and nutritional benefits.
+        </p>
+      </div>
+      <div class="card">
+        <h2 class="card-title">Eggplant</h2>
+        <img src="{% static 'images/eggp.jpg' %}" alt="" />
+        <p class="card-desc">
+           Eggplants, also called aubergines, are glossy purple fruits commonly used as vegetables in cooking.
+            They have a mild, slightly bitter taste and a spongy texture,
+            making them ideal for dishes like moussaka, ratatouille, and eggplant parmesan.
+        </p>
+      </div>
+      <div class="card">
+        <h2 class="card-title">Beans</h2>
+        <img src="{% static 'images/beans.jpg' %}" alt="" />
+        <p class="card-desc">
+          Beans are nutritious legumes available in a variety of types, including green beans, 
+          kidney beans, and black beans. They are rich in protein, fiber, and essential nutrients, 
+          making them a staple in vegetarian diets and a versatile ingredient in soups, salads, and main dishes
+        </p>
+      </div>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <h2 class="card-title">Cucumber</h2>
+        <img src="{% static 'images/cucumber.jpg' %}" alt="" />
+        <p class="card-desc">
+          Cucumbers are refreshing, crunchy vegetables with high water content, making them hydrating and nutritious.
+           They are commonly eaten raw in salads, sandwiches, and pickles, and are prized for their cooling effect and mild, refreshing flavor.
+        </p>
+      </div>
+      <div class="card">
+        <h2 class="card-title">Carrot</h2>
+        <img src="{% static 'images/carot.jpg' %}" alt="" />
+        <p class="card-desc">
+          Carrots are vibrant orange root vegetables known for their sweet flavor and crunchy texture. 
+          Packed with beta-carotene, vitamins, and minerals, carrots are not only delicious raw or
+           cooked but also offer numerous health benefits for vision, skin, and immune function.
+        </p>
+      </div>
+      <div class="card">
+        <h2 class="card-title">Chilli</h2>
+        <img src="{% static 'images/chilli.jpg' %}" alt="" />
+        <p class="card-desc">
+          Chilies, or hot peppers, are spicy fruits widely used to add heat and flavor to dishes. Available in various 
+          shapes, sizes, and levels of spiciness, chilies are rich in capsaicin, which provides their characteristic heat and offers
+          potential health benefits like pain relief and metabolism boost.
+        </p>
+      </div>
+      <div class="card">
+        <h2 class="card-title">Pumkins</h2>
+        <img src="{% static 'images/pumkin.jpg' %}" alt="" />
+        <p class="card-desc">
+          Pumpkins are large, orange winter squash prized for their sweet flesh and seeds. Used in both sweet and savory dishes,
+           pumpkins are rich in vitamins, fiber, and antioxidants. 
+          They are popularly used in pies, soups, and roasted dishes during the fall season.
+        </p>
+      </div>
+    </div>
+ <footer>
+      <h4> &copy; 2024 EWU</h4>
+    </footer>
+    <script type="text/javascript">
+      var Tawk_API = Tawk_API || {},
+        Tawk_LoadStart = new Date();
+      (function () {
+        var s1 = document.createElement("script"),
+          s0 = document.getElementsByTagName("script")[0];
+        s1.async = true;
+        s1.src = "https://embed.tawk.to/656f6734ff45ca7d47871e92/1hgtima71";
+        s1.charset = "UTF-8";
+        s1.setAttribute("crossorigin", "*");
+        s0.parentNode.insertBefore(s1, s0);
+      })();
+    </script>
+  </body>
+</html>
